@@ -27,8 +27,8 @@ Reliably display any website's favicon with correct fallback detection — fast 
 - [ ] TypeScript strict mode with shipped .d.ts declarations
 - [ ] Dual ESM + CJS output via tsup
 - [ ] React 17, 18, and 19 peer dependency support
-- [ ] README with badges, install instructions, API docs, usage examples, and comparison to alternatives
-- [ ] SEO-optimized package.json keywords for npm discoverability
+- [x] README with badges, install instructions, API docs, usage examples, and comparison to alternatives — Validated in Phase 5: documentation
+- [x] SEO-optimized package.json keywords for npm discoverability — Validated in Phase 5: documentation
 - [ ] Demo site: Astro + React landing page with interactive "try it" playground
 - [ ] ESLint + Prettier configuration
 - [ ] Husky + lint-staged pre-commit hooks
