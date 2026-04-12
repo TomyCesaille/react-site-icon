@@ -1,0 +1,50 @@
+# NOTE: Enable branch protection in repo settings requiring this workflow
+# to pass before merge to main. (Settings > Rules > Rulesets or Branch protection)
+
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  ci:
+    name: Quality Gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Unit tests
+        run: npm run test
+
+      - name: Export validation
+        run: npm run test:exports
+
+      - name: Format check
+        run: npm run format:check
+
+      - name: Build
+        run: npm run build
+
+      - name: Check bundle size
+        run: |
+          SIZE=$(gzip -c dist/index.js | wc -c)
+          echo "Gzipped size: ${SIZE} bytes"
+          if [ "$SIZE" -gt 1024 ]; then
+            echo "::error::Bundle too large: ${SIZE} bytes (limit: 1024)"
+            exit 1
+          fi
