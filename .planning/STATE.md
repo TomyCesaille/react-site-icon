@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: verifying
-stopped_at: Phase 3 context gathered
-last_updated: "2026-04-12T17:46:36.025Z"
+status: executing
+stopped_at: Completed 03-01-PLAN.md
+last_updated: "2026-04-12T18:15:56.727Z"
 last_activity: 2026-04-12
 progress:
   total_phases: 6
   completed_phases: 2
-  total_plans: 3
-  completed_plans: 3
-  percent: 100
+  total_plans: 5
+  completed_plans: 4
+  percent: 80
 ---
 
 # Project State
@@ -21,13 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-12)
 
 **Core value:** Reliably display any website's favicon with correct fallback detection -- fast, tiny, zero dependencies.
-**Current focus:** Phase 02 — core-component
+**Current focus:** Phase 03 — testing
 
 ## Current Position
 
-Phase: 3
-Plan: Not started
-Status: Phase complete — ready for verification
+Phase: 03 (testing) — EXECUTING
+Plan: 2 of 2
+Status: Ready to execute
 Last activity: 2026-04-12
 
 Progress: [░░░░░░░░░░] 0%
@@ -56,6 +56,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01 P01 | 2min | 2 tasks | 9 files |
 | Phase 01 P02 | 7min | 2 tasks | 9 files |
 | Phase 02 P01 | 3min | 2 tasks | 1 files |
+| Phase 03-testing P01 | 4min | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -76,6 +77,9 @@ Recent decisions affecting current work:
 - [Phase 02]: prevDomain state pattern instead of useRef for domain-change detection during render -- eslint-plugin-react-hooks 7.x refs rule
 - [Phase 02]: Separate useEffect for ref sync and onResolved callback -- react-hooks/set-state-in-effect rule
 - [Phase 02]: naturalWidth > 16 threshold for Google default globe detection
+- [Phase 03-testing]: vitest/globals types added to tsconfig for ESLint projectService compatibility with test globals
+- [Phase 03-testing]: ESLint test file overrides: relaxed strict type-checked rules (no-unsafe-call, no-non-null-assertion) for *.test.{ts,tsx} files only
+- [Phase 03-testing]: SSR renders lazy strategy loading state (fallback + hidden detection img) -- tests verify actual behavior, not plan assumption of no CDN img
 
 ### Pending Todos
 
@@ -87,6 +91,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-12T17:46:36.022Z
-Stopped at: Phase 3 context gathered
-Resume file: .planning/phases/03-testing/03-CONTEXT.md
+Last session: 2026-04-12T18:15:56.724Z
+Stopped at: Completed 03-01-PLAN.md
+Resume file: None

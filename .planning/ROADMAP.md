@@ -60,7 +60,7 @@ Plans:
   3. Running `attw` (arethetypeswrong) against the built package reports no export resolution errors
 **Plans:** 2 plans
 Plans:
-- [ ] 03-01-PLAN.md -- Test infrastructure fixes and complete SiteIcon test suite (TEST-01, TEST-02)
+- [x] 03-01-PLAN.md -- Test infrastructure fixes and complete SiteIcon test suite (TEST-01, TEST-02)
 - [ ] 03-02-PLAN.md -- Package export validation with @arethetypeswrong/cli (TEST-03)
 
 ### Phase 4: CI/CD and Release Automation

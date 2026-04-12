@@ -36,8 +36,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Testing
 
-- [ ] **TEST-01**: Unit tests with vitest + @testing-library/react covering component rendering, fallback detection, and error handling
-- [ ] **TEST-02**: Tests mock image loading (never hit Google CDN in CI)
+- [x] **TEST-01**: Unit tests with vitest + @testing-library/react covering component rendering, fallback detection, and error handling
+- [x] **TEST-02**: Tests mock image loading (never hit Google CDN in CI)
 - [ ] **TEST-03**: `@arethetypeswrong/cli` validates package exports correctness in CI
 
 ### Documentation
@@ -130,8 +130,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BUILD-06 | Phase 1 | Complete |
 | BUILD-07 | Phase 1 | Complete |
 | BUILD-08 | Phase 1 | Complete |
-| TEST-01 | Phase 3 | Pending |
-| TEST-02 | Phase 3 | Pending |
+| TEST-01 | Phase 3 | Complete |
+| TEST-02 | Phase 3 | Complete |
 | TEST-03 | Phase 3 | Pending |
 | DOCS-01 | Phase 5 | Pending |
 | DOCS-02 | Phase 5 | Pending |
