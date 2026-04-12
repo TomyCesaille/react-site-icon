@@ -87,7 +87,10 @@ Plans:
   3. A comparison table shows react-site-icon vs favicon-stealer vs DIY approaches
   4. The README includes a StackBlitz embed link for instant "try it now"
   5. `npm search favicon react` returns react-site-icon due to optimized package.json keywords
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 05-01-PLAN.md -- README.md with cognitive funneling structure, badges, API table, strategies, comparison, and keywords (DOCS-01, DOCS-02, DOCS-03, DOCS-04, DOCS-05, DOCS-06)
+- [ ] 05-02-PLAN.md -- StackBlitz example project in examples/basic/ (DOCS-05)
 
 ### Phase 6: Demo Site
 **Goal**: Visitors to the GitHub Pages site can interactively test the component with any domain before installing
@@ -112,5 +115,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 2. Core Component | 0/1 | Planning complete | - |
 | 3. Testing | 0/2 | Planning complete | - |
 | 4. CI/CD and Release Automation | 0/2 | Planning complete | - |
-| 5. Documentation | 0/TBD | Not started | - |
+| 5. Documentation | 0/2 | Planning complete | - |
 | 6. Demo Site | 0/TBD | Not started | - |
