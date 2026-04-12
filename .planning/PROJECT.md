@@ -18,6 +18,10 @@ Reliably display any website's favicon with correct fallback detection — fast 
 - [x] SSR-compatible — render fallback on server, load favicon on client — Validated in Phase 2: core-component
 - [x] Unit tests with vitest + @testing-library/react — Validated in Phase 3: testing (35 tests, zero network requests)
 - [x] Package export validation across all TypeScript resolution modes — Validated in Phase 3: testing
+- [x] GitHub Actions CI — lint, test, build on PR/push — Validated in Phase 4: ci-cd-and-release-automation
+- [x] GitHub Actions CD — auto-publish to npm via Changesets + OIDC Trusted Publishing — Validated in Phase 4: ci-cd-and-release-automation
+- [x] GitHub Pages hosting for demo site — Validated in Phase 4: ci-cd-and-release-automation (deploy workflow ready, awaiting docs/ from Phase 6)
+- [x] Changesets for versioning and changelog generation — Validated in Phase 4: ci-cd-and-release-automation
 
 ### Active
 - [ ] TypeScript strict mode with shipped .d.ts declarations
@@ -26,12 +30,8 @@ Reliably display any website's favicon with correct fallback detection — fast 
 - [ ] README with badges, install instructions, API docs, usage examples, and comparison to alternatives
 - [ ] SEO-optimized package.json keywords for npm discoverability
 - [ ] Demo site: Astro + React landing page with interactive "try it" playground
-- [ ] GitHub Pages hosting for demo site
-- [ ] GitHub Actions CI — lint, test, build on PR/push
-- [ ] GitHub Actions CD — auto-publish to npm on git tag push
 - [ ] ESLint + Prettier configuration
 - [ ] Husky + lint-staged pre-commit hooks
-- [ ] Changesets for versioning and changelog generation
 
 ### Out of Scope
 
@@ -93,4 +93,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-12 — Phase 3 complete: 35-test suite (vitest + testing-library), package export validation via attw, zero network requests*
+*Last updated: 2026-04-12 — Phase 4 complete: CI/CD pipeline with quality gates, Changesets release automation via OIDC Trusted Publishing, GitHub Pages deploy workflow*
