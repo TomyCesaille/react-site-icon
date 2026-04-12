@@ -47,6 +47,6 @@ export default tseslint.config(
   },
   eslintConfigPrettier,
   {
-    ignores: ['dist/', 'node_modules/', '*.config.*', 'vitest.setup.ts'],
+    ignores: ['dist/', 'node_modules/', '*.config.*', 'vitest.setup.ts', 'examples/'],
   },
 );
