@@ -74,8 +74,8 @@ Plans:
   4. A GitHub Actions workflow deploys the demo site to GitHub Pages on push to main
 **Plans:** 2 plans
 Plans:
-- [ ] 04-01-PLAN.md -- Repository identity fixes, release script, LICENSE update (CICD-04)
-- [ ] 04-02-PLAN.md -- GitHub Actions workflows: CI, Release, Deploy (CICD-01, CICD-02, CICD-03, CICD-04)
+- [x] 04-01-PLAN.md -- Repository identity fixes, release script, LICENSE update (CICD-04)
+- [x] 04-02-PLAN.md -- GitHub Actions workflows: CI, Release, Deploy (CICD-01, CICD-02, CICD-03, CICD-04)
 
 ### Phase 5: Documentation
 **Goal**: A developer discovering react-site-icon on npm can understand what it does, install it, and use it within 60 seconds
