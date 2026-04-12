@@ -64,10 +64,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Quality Tooling
 
-- [ ] **TOOL-01**: ESLint 10 with flat config (`eslint.config.js`) and typescript-eslint
-- [ ] **TOOL-02**: Prettier formatting configuration
-- [ ] **TOOL-03**: Husky + lint-staged pre-commit hooks running lint and format
-- [ ] **TOOL-04**: Changesets configured for versioning and changelog generation
+- [x] **TOOL-01**: ESLint 10 with flat config (`eslint.config.js`) and typescript-eslint
+- [x] **TOOL-02**: Prettier formatting configuration
+- [x] **TOOL-03**: Husky + lint-staged pre-commit hooks running lint and format
+- [x] **TOOL-04**: Changesets configured for versioning and changelog generation
 
 ## v2 Requirements
 
@@ -146,10 +146,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CICD-02 | Phase 4 | Pending |
 | CICD-03 | Phase 4 | Pending |
 | CICD-04 | Phase 4 | Pending |
-| TOOL-01 | Phase 1 | Pending |
-| TOOL-02 | Phase 1 | Pending |
-| TOOL-03 | Phase 1 | Pending |
-| TOOL-04 | Phase 1 | Pending |
+| TOOL-01 | Phase 1 | Complete |
+| TOOL-02 | Phase 1 | Complete |
+| TOOL-03 | Phase 1 | Complete |
+| TOOL-04 | Phase 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 41 total
