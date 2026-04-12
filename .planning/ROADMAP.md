@@ -31,7 +31,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. The `exports` field in package.json resolves correctly (types condition first, separate ESM/CJS paths)
   4. React and react-dom are externalized (not present in dist output)
   5. ESLint, Prettier, and Husky pre-commit hooks run successfully on a sample file
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 01-01-PLAN.md -- Repository scaffold, build pipeline, skeleton SiteIcon component (BUILD-01 through BUILD-08)
+- [ ] 01-02-PLAN.md -- Quality tooling: ESLint, Prettier, Husky, Changesets, Vitest config (TOOL-01 through TOOL-04)
 
 ### Phase 2: Core Component
 **Goal**: Users can render `<SiteIcon domain="github.com" />` and see GitHub's favicon, with automatic fallback for unknown domains
@@ -98,7 +101,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Project Scaffolding and Build Pipeline | 0/TBD | Not started | - |
+| 1. Project Scaffolding and Build Pipeline | 0/2 | Planning complete | - |
 | 2. Core Component | 0/TBD | Not started | - |
 | 3. Testing | 0/TBD | Not started | - |
 | 4. CI/CD and Release Automation | 0/TBD | Not started | - |
