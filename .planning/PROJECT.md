@@ -12,14 +12,12 @@ Reliably display any website's favicon with correct fallback detection — fast 
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] SiteIcon component with domain, size, fallback, className, style, alt, onResolved props — Validated in Phase 2: core-component
+- [x] Domain input normalization — strip protocols and paths (accept `https://github.com/path`, extract `github.com`) — Validated in Phase 2: core-component
+- [x] naturalWidth fallback detection — Google returns 16x16 default globe when larger size requested — Validated in Phase 2: core-component
+- [x] SSR-compatible — render fallback on server, load favicon on client — Validated in Phase 2: core-component
 
 ### Active
-
-- [ ] SiteIcon component with domain, size, fallback, className, style, alt, onResolved props
-- [ ] Domain input normalization — strip protocols and paths (accept `https://github.com/path`, extract `github.com`)
-- [ ] naturalWidth fallback detection — Google returns 16x16 default globe when larger size requested
-- [ ] SSR-compatible — render fallback on server, load favicon on client
 - [ ] TypeScript strict mode with shipped .d.ts declarations
 - [ ] Dual ESM + CJS output via tsup
 - [ ] React 17, 18, and 19 peer dependency support
@@ -94,4 +92,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-12 — Phase 1 complete: project scaffolding and build pipeline verified*
+*Last updated: 2026-04-12 — Phase 2 complete: core SiteIcon component with naturalWidth detection, 3 strategies, domain normalization, 765B gzipped*
