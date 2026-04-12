@@ -25,14 +25,14 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Package Build
 
-- [ ] **BUILD-01**: TypeScript strict mode with shipped .d.ts declarations via tsup
-- [ ] **BUILD-02**: Dual ESM + CJS output via tsup (`.js` + `.cjs` or `.mjs` + `.js`)
-- [ ] **BUILD-03**: `"use client"` banner injected in build output for Next.js RSC/App Router compatibility
-- [ ] **BUILD-04**: Correct `exports` field in package.json with `types` condition listed first
-- [ ] **BUILD-05**: React and react-dom externalized as peer dependencies (not bundled into dist)
-- [ ] **BUILD-06**: `"files": ["dist"]` in package.json -- only dist directory published to npm
-- [ ] **BUILD-07**: Bundle size under 1KB minified+gzipped
-- [ ] **BUILD-08**: React 17, 18, and 19 declared as peer dependencies (`"^17.0.0 || ^18.0.0 || ^19.0.0"`)
+- [x] **BUILD-01**: TypeScript strict mode with shipped .d.ts declarations via tsup
+- [x] **BUILD-02**: Dual ESM + CJS output via tsup (`.js` + `.cjs` or `.mjs` + `.js`)
+- [x] **BUILD-03**: `"use client"` banner injected in build output for Next.js RSC/App Router compatibility
+- [x] **BUILD-04**: Correct `exports` field in package.json with `types` condition listed first
+- [x] **BUILD-05**: React and react-dom externalized as peer dependencies (not bundled into dist)
+- [x] **BUILD-06**: `"files": ["dist"]` in package.json -- only dist directory published to npm
+- [x] **BUILD-07**: Bundle size under 1KB minified+gzipped
+- [x] **BUILD-08**: React 17, 18, and 19 declared as peer dependencies (`"^17.0.0 || ^18.0.0 || ^19.0.0"`)
 
 ### Testing
 
@@ -122,14 +122,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 | COMP-11 | Phase 2 | Pending |
 | COMP-12 | Phase 2 | Pending |
 | COMP-13 | Phase 2 | Pending |
-| BUILD-01 | Phase 1 | Pending |
-| BUILD-02 | Phase 1 | Pending |
-| BUILD-03 | Phase 1 | Pending |
-| BUILD-04 | Phase 1 | Pending |
-| BUILD-05 | Phase 1 | Pending |
-| BUILD-06 | Phase 1 | Pending |
-| BUILD-07 | Phase 1 | Pending |
-| BUILD-08 | Phase 1 | Pending |
+| BUILD-01 | Phase 1 | Complete |
+| BUILD-02 | Phase 1 | Complete |
+| BUILD-03 | Phase 1 | Complete |
+| BUILD-04 | Phase 1 | Complete |
+| BUILD-05 | Phase 1 | Complete |
+| BUILD-06 | Phase 1 | Complete |
+| BUILD-07 | Phase 1 | Complete |
+| BUILD-08 | Phase 1 | Complete |
 | TEST-01 | Phase 3 | Pending |
 | TEST-02 | Phase 3 | Pending |
 | TEST-03 | Phase 3 | Pending |

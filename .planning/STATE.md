@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Phase 1 context gathered
-last_updated: "2026-04-12T10:24:59.924Z"
-last_activity: 2026-04-12 -- Roadmap created
+status: executing
+stopped_at: Completed 01-01-PLAN.md
+last_updated: "2026-04-12T16:24:16.314Z"
+last_activity: 2026-04-12
 progress:
   total_phases: 6
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  total_plans: 2
+  completed_plans: 1
+  percent: 50
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-12)
 
 **Core value:** Reliably display any website's favicon with correct fallback detection -- fast, tiny, zero dependencies.
-**Current focus:** Phase 1: Project Scaffolding and Build Pipeline
+**Current focus:** Phase 01 — project-scaffolding-and-build-pipeline
 
 ## Current Position
 
-Phase: 1 of 6 (Project Scaffolding and Build Pipeline)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-04-12 -- Roadmap created
+Phase: 01 (project-scaffolding-and-build-pipeline) — EXECUTING
+Plan: 2 of 2
+Status: Ready to execute
+Last activity: 2026-04-12
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -52,6 +52,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: -
 
 *Updated after each plan completion*
+| Phase 01 P01 | 2min | 2 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -63,6 +64,9 @@ Recent decisions affecting current work:
 - Roadmap: 6 phases derived from 41 requirements across 7 categories
 - Roadmap: Quality tooling (TOOL-*) grouped into Phase 1 with build setup (dev environment foundation)
 - Roadmap: Phase 5 (Docs) depends only on Phase 2 but sequenced after Phase 4 for natural flow
+- [Phase 01]: esbuildOptions callback for use client banner instead of top-level banner to avoid .d.ts injection
+- [Phase 01]: Types-first ordering in package.json exports for correct TypeScript resolution
+- [Phase 01]: React as devDependency + peerDependency, not runtime dependency -- prevents bundling
 
 ### Pending Todos
 
@@ -74,6 +78,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-12T10:24:59.922Z
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-project-scaffolding-and-build-pipeline/01-CONTEXT.md
+Last session: 2026-04-12T16:24:16.312Z
+Stopped at: Completed 01-01-PLAN.md
+Resume file: None

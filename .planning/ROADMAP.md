@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   5. ESLint, Prettier, and Husky pre-commit hooks run successfully on a sample file
 **Plans:** 2 plans
 Plans:
-- [ ] 01-01-PLAN.md -- Repository scaffold, build pipeline, skeleton SiteIcon component (BUILD-01 through BUILD-08)
+- [x] 01-01-PLAN.md -- Repository scaffold, build pipeline, skeleton SiteIcon component (BUILD-01 through BUILD-08)
 - [ ] 01-02-PLAN.md -- Quality tooling: ESLint, Prettier, Husky, Changesets, Vitest config (TOOL-01 through TOOL-04)
 
 ### Phase 2: Core Component
