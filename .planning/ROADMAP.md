@@ -61,7 +61,7 @@ Plans:
 **Plans:** 2 plans
 Plans:
 - [x] 03-01-PLAN.md -- Test infrastructure fixes and complete SiteIcon test suite (TEST-01, TEST-02)
-- [ ] 03-02-PLAN.md -- Package export validation with @arethetypeswrong/cli (TEST-03)
+- [x] 03-02-PLAN.md -- Package export validation with @arethetypeswrong/cli (TEST-03)
 
 ### Phase 4: CI/CD and Release Automation
 **Goal**: Every push to main runs automated quality gates, and tagging a release publishes to npm without manual intervention
