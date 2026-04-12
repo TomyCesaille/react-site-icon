@@ -58,7 +58,10 @@ Plans:
   1. Running `npm test` executes a test suite that passes, covering rendering, fallback detection, domain normalization edge cases, and error handling
   2. No test makes a real network request to Google's CDN (all image loading is mocked)
   3. Running `attw` (arethetypeswrong) against the built package reports no export resolution errors
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 03-01-PLAN.md -- Test infrastructure fixes and complete SiteIcon test suite (TEST-01, TEST-02)
+- [ ] 03-02-PLAN.md -- Package export validation with @arethetypeswrong/cli (TEST-03)
 
 ### Phase 4: CI/CD and Release Automation
 **Goal**: Every push to main runs automated quality gates, and tagging a release publishes to npm without manual intervention
@@ -104,7 +107,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 |-------|----------------|--------|-----------|
 | 1. Project Scaffolding and Build Pipeline | 0/2 | Planning complete | - |
 | 2. Core Component | 0/1 | Planning complete | - |
-| 3. Testing | 0/TBD | Not started | - |
+| 3. Testing | 0/2 | Planning complete | - |
 | 4. CI/CD and Release Automation | 0/TBD | Not started | - |
 | 5. Documentation | 0/TBD | Not started | - |
 | 6. Demo Site | 0/TBD | Not started | - |
