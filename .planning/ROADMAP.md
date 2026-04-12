@@ -72,7 +72,10 @@ Plans:
   2. Pushing a git tag triggers an automated npm publish via OIDC Trusted Publishing (no stored secrets)
   3. Changesets integration creates version bump PRs and publishes on merge
   4. A GitHub Actions workflow deploys the demo site to GitHub Pages on push to main
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 04-01-PLAN.md -- Repository identity fixes, release script, LICENSE update (CICD-04)
+- [ ] 04-02-PLAN.md -- GitHub Actions workflows: CI, Release, Deploy (CICD-01, CICD-02, CICD-03, CICD-04)
 
 ### Phase 5: Documentation
 **Goal**: A developer discovering react-site-icon on npm can understand what it does, install it, and use it within 60 seconds
@@ -108,6 +111,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 1. Project Scaffolding and Build Pipeline | 0/2 | Planning complete | - |
 | 2. Core Component | 0/1 | Planning complete | - |
 | 3. Testing | 0/2 | Planning complete | - |
-| 4. CI/CD and Release Automation | 0/TBD | Not started | - |
+| 4. CI/CD and Release Automation | 0/2 | Planning complete | - |
 | 5. Documentation | 0/TBD | Not started | - |
 | 6. Demo Site | 0/TBD | Not started | - |
