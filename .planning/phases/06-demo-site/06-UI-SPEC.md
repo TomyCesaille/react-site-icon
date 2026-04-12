@@ -53,8 +53,10 @@ Exceptions: Grid items use 44px minimum touch target for the favicon display are
 |------|------|--------|-------------|------------|
 | Body | 16px | 400 (regular) | 1.5 | system font stack |
 | Label | 14px | 400 (regular) | 1.4 | system font stack |
-| Heading | 20px | 600 (semibold) | 1.2 | monospace stack |
+| Heading | 20px | 700 (bold) | 1.2 | monospace stack |
 | Display | 32px | 700 (bold) | 1.1 | monospace stack |
+
+**Weight rationale:** 2 weights only -- 400 (regular) for body text and labels, 700 (bold) for headings and display. The size difference between Heading (20px) and Display (32px) provides sufficient visual hierarchy without a third weight.
 
 **Usage map:**
 - Display: Hero tagline only ("Display any website's favicon")
@@ -171,6 +173,8 @@ None. This is a read-only demo page with no user data, no deletions, no mutation
 ---
 
 ## Layout Contract
+
+**Primary focal point:** Hero tagline at Display size (32px, 700 weight, monospace) -- the first and largest text element on the page, drawing the eye before the visitor scrolls to the playground.
 
 ### Page Structure (top to bottom)
 
