@@ -46,8 +46,9 @@ Plans:
   3. `<SiteIcon domain="thisdomain-definitely-does-not-exist-xyz.com" fallback={<span>?</span>} />` renders the fallback element (not the default globe)
   4. The component renders fallback content during SSR and resolves the favicon only on the client after hydration
   5. All standard img attributes (`loading`, `decoding`, `data-*`, `aria-*`) pass through to the underlying element, and ref forwarding works
-**Plans**: TBD
-**UI hint**: yes
+**Plans:** 1 plan
+Plans:
+- [ ] 02-01-PLAN.md -- Full SiteIcon component: props API, domain normalization, naturalWidth detection, strategies, ref forwarding (COMP-01 through COMP-13)
 
 ### Phase 3: Testing
 **Goal**: The component's behavior is verified by automated tests that run without network access
@@ -102,7 +103,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Project Scaffolding and Build Pipeline | 0/2 | Planning complete | - |
-| 2. Core Component | 0/TBD | Not started | - |
+| 2. Core Component | 0/1 | Planning complete | - |
 | 3. Testing | 0/TBD | Not started | - |
 | 4. CI/CD and Release Automation | 0/TBD | Not started | - |
 | 5. Documentation | 0/TBD | Not started | - |
