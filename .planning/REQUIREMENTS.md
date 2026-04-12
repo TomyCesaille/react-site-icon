@@ -42,12 +42,12 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Documentation
 
-- [ ] **DOCS-01**: README follows cognitive funneling: package name -> one-line description -> badges -> install -> 3-line example -> "why this library" -> full API table -> advanced examples -> license
-- [ ] **DOCS-02**: README displays badges: npm version, bundle size (Bundlephobia), MIT license, CI status
-- [ ] **DOCS-03**: package.json `keywords` optimized for npm search: favicon, site-icon, website-icon, react, react-component, domain-favicon, google-favicon
-- [ ] **DOCS-04**: README includes comparison table vs favicon-stealer and DIY approaches
-- [ ] **DOCS-05**: README includes StackBlitz embed link for one-click "try it now" experience
-- [ ] **DOCS-06**: README includes full props/API table with prop name, type, default, and description columns
+- [x] **DOCS-01**: README follows cognitive funneling: package name -> one-line description -> badges -> install -> 3-line example -> "why this library" -> full API table -> advanced examples -> license
+- [x] **DOCS-02**: README displays badges: npm version, bundle size (Bundlephobia), MIT license, CI status
+- [x] **DOCS-03**: package.json `keywords` optimized for npm search: favicon, site-icon, website-icon, react, react-component, domain-favicon, google-favicon
+- [x] **DOCS-04**: README includes comparison table vs favicon-stealer and DIY approaches
+- [x] **DOCS-05**: README includes StackBlitz embed link for one-click "try it now" experience
+- [x] **DOCS-06**: README includes full props/API table with prop name, type, default, and description columns
 
 ### Demo Site
 
@@ -133,12 +133,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TEST-01 | Phase 3 | Complete |
 | TEST-02 | Phase 3 | Complete |
 | TEST-03 | Phase 3 | Complete |
-| DOCS-01 | Phase 5 | Pending |
-| DOCS-02 | Phase 5 | Pending |
-| DOCS-03 | Phase 5 | Pending |
-| DOCS-04 | Phase 5 | Pending |
-| DOCS-05 | Phase 5 | Pending |
-| DOCS-06 | Phase 5 | Pending |
+| DOCS-01 | Phase 5 | Complete |
+| DOCS-02 | Phase 5 | Complete |
+| DOCS-03 | Phase 5 | Complete |
+| DOCS-04 | Phase 5 | Complete |
+| DOCS-05 | Phase 5 | Complete |
+| DOCS-06 | Phase 5 | Complete |
 | DEMO-01 | Phase 6 | Pending |
 | DEMO-02 | Phase 6 | Pending |
 | DEMO-03 | Phase 6 | Pending |
