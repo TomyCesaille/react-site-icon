@@ -1,0 +1,79 @@
+# NOTE: GitHub Pages must be enabled in repo settings with "GitHub Actions" as
+# the source. (Settings > Pages > Source: GitHub Actions)
+
+name: Deploy Demo Site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Check docs/ exists
+    runs-on: ubuntu-latest
+    outputs:
+      exists: ${{ steps.check.outputs.exists }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: docs
+
+      - id: check
+        run: echo "exists=$(test -d docs && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
+  quality:
+    name: Quality Gates
+    needs: check
+    if: needs.check.outputs.exists == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm run test
+
+      - name: Build library
+        run: npm run build
+
+  build:
+    name: Build Astro Site
+    needs: quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: withastro/action@v6
+        with:
+          path: docs/
+          node-version: 22
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
