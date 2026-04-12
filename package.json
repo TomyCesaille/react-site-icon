@@ -81,7 +81,9 @@
     "react",
     "react-component",
     "domain-favicon",
-    "google-favicon"
+    "google-favicon",
+    "website-favicon",
+    "favicon-component"
   ],
   "author": "Joris Lacance",
   "license": "MIT",
