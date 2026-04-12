@@ -9,19 +9,19 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Component API
 
-- [ ] **COMP-01**: SiteIcon component accepts `domain` prop (string, required) to specify which website's favicon to display
-- [ ] **COMP-02**: SiteIcon accepts `size` prop (number, default 32) controlling requested favicon size in pixels
-- [ ] **COMP-03**: SiteIcon accepts `fallback` prop (ReactNode) rendered when no favicon is available
-- [ ] **COMP-04**: SiteIcon accepts `className` prop passed through to the wrapper/img element
-- [ ] **COMP-05**: SiteIcon accepts `style` prop (CSSProperties) passed through to the wrapper/img element
-- [ ] **COMP-06**: SiteIcon accepts `alt` prop (string) for accessibility on the img element
-- [ ] **COMP-07**: SiteIcon normalizes domain input -- strips protocols, paths, query params, and hash to extract hostname
-- [ ] **COMP-08**: SiteIcon detects Google's default globe via naturalWidth check (16x16 at any requested size) and triggers fallback
-- [ ] **COMP-09**: SiteIcon is SSR-compatible -- renders fallback on server, runs detection on client after hydration
-- [ ] **COMP-10**: SiteIcon handles network errors gracefully -- img onError triggers fallback rendering
-- [ ] **COMP-11**: SiteIcon accepts `onResolved` callback prop, fired with boolean (true = found, false = fallback) when favicon status is determined
-- [ ] **COMP-12**: SiteIcon forwards ref to the underlying `<img>` element -- forwardRef for React 17/18, ref as prop for React 19
-- [ ] **COMP-13**: SiteIcon spreads remaining props (`...restProps`) onto the `<img>` element, enabling `loading`, `decoding`, `data-*`, `aria-*` attributes
+- [x] **COMP-01**: SiteIcon component accepts `domain` prop (string, required) to specify which website's favicon to display
+- [x] **COMP-02**: SiteIcon accepts `size` prop (number, default 32) controlling requested favicon size in pixels
+- [x] **COMP-03**: SiteIcon accepts `fallback` prop (ReactNode) rendered when no favicon is available
+- [x] **COMP-04**: SiteIcon accepts `className` prop passed through to the wrapper/img element
+- [x] **COMP-05**: SiteIcon accepts `style` prop (CSSProperties) passed through to the wrapper/img element
+- [x] **COMP-06**: SiteIcon accepts `alt` prop (string) for accessibility on the img element
+- [x] **COMP-07**: SiteIcon normalizes domain input -- strips protocols, paths, query params, and hash to extract hostname
+- [x] **COMP-08**: SiteIcon detects Google's default globe via naturalWidth check (16x16 at any requested size) and triggers fallback
+- [x] **COMP-09**: SiteIcon is SSR-compatible -- renders fallback on server, runs detection on client after hydration
+- [x] **COMP-10**: SiteIcon handles network errors gracefully -- img onError triggers fallback rendering
+- [x] **COMP-11**: SiteIcon accepts `onResolved` callback prop, fired with boolean (true = found, false = fallback) when favicon status is determined
+- [x] **COMP-12**: SiteIcon forwards ref to the underlying `<img>` element -- forwardRef for React 17/18, ref as prop for React 19
+- [x] **COMP-13**: SiteIcon spreads remaining props (`...restProps`) onto the `<img>` element, enabling `loading`, `decoding`, `data-*`, `aria-*` attributes
 
 ### Package Build
 
@@ -109,19 +109,19 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| COMP-01 | Phase 2 | Pending |
-| COMP-02 | Phase 2 | Pending |
-| COMP-03 | Phase 2 | Pending |
-| COMP-04 | Phase 2 | Pending |
-| COMP-05 | Phase 2 | Pending |
-| COMP-06 | Phase 2 | Pending |
-| COMP-07 | Phase 2 | Pending |
-| COMP-08 | Phase 2 | Pending |
-| COMP-09 | Phase 2 | Pending |
-| COMP-10 | Phase 2 | Pending |
-| COMP-11 | Phase 2 | Pending |
-| COMP-12 | Phase 2 | Pending |
-| COMP-13 | Phase 2 | Pending |
+| COMP-01 | Phase 2 | Complete |
+| COMP-02 | Phase 2 | Complete |
+| COMP-03 | Phase 2 | Complete |
+| COMP-04 | Phase 2 | Complete |
+| COMP-05 | Phase 2 | Complete |
+| COMP-06 | Phase 2 | Complete |
+| COMP-07 | Phase 2 | Complete |
+| COMP-08 | Phase 2 | Complete |
+| COMP-09 | Phase 2 | Complete |
+| COMP-10 | Phase 2 | Complete |
+| COMP-11 | Phase 2 | Complete |
+| COMP-12 | Phase 2 | Complete |
+| COMP-13 | Phase 2 | Complete |
 | BUILD-01 | Phase 1 | Complete |
 | BUILD-02 | Phase 1 | Complete |
 | BUILD-03 | Phase 1 | Complete |

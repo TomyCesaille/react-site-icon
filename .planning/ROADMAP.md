@@ -48,7 +48,7 @@ Plans:
   5. All standard img attributes (`loading`, `decoding`, `data-*`, `aria-*`) pass through to the underlying element, and ref forwarding works
 **Plans:** 1 plan
 Plans:
-- [ ] 02-01-PLAN.md -- Full SiteIcon component: props API, domain normalization, naturalWidth detection, strategies, ref forwarding (COMP-01 through COMP-13)
+- [x] 02-01-PLAN.md -- Full SiteIcon component: props API, domain normalization, naturalWidth detection, strategies, ref forwarding (COMP-01 through COMP-13)
 
 ### Phase 3: Testing
 **Goal**: The component's behavior is verified by automated tests that run without network access

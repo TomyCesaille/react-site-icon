@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: verifying
-stopped_at: Phase 2 context gathered
-last_updated: "2026-04-12T16:59:25.207Z"
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-04-12T17:25:25.211Z"
 last_activity: 2026-04-12
 progress:
   total_phases: 6
-  completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  completed_phases: 2
+  total_plans: 3
+  completed_plans: 3
   percent: 100
 ---
 
@@ -21,12 +21,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-12)
 
 **Core value:** Reliably display any website's favicon with correct fallback detection -- fast, tiny, zero dependencies.
-**Current focus:** Phase 01 — project-scaffolding-and-build-pipeline
+**Current focus:** Phase 02 — core-component
 
 ## Current Position
 
-Phase: 2
-Plan: Not started
+Phase: 02 (core-component) — EXECUTING
+Plan: 1 of 1
 Status: Phase complete — ready for verification
 Last activity: 2026-04-12
 
@@ -54,6 +54,7 @@ Progress: [░░░░░░░░░░] 0%
 *Updated after each plan completion*
 | Phase 01 P01 | 2min | 2 tasks | 9 files |
 | Phase 01 P02 | 7min | 2 tasks | 9 files |
+| Phase 02 P01 | 3min | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -71,6 +72,9 @@ Recent decisions affecting current work:
 - [Phase 01]: strictTypeChecked + stylisticTypeChecked ESLint rulesets per D-03 with projectService: true
 - [Phase 01]: Co-located test discovery pattern src/**/*.test.{ts,tsx} per D-02
 - [Phase 01]: Changesets access: public required for public npm packages
+- [Phase 02]: prevDomain state pattern instead of useRef for domain-change detection during render -- eslint-plugin-react-hooks 7.x refs rule
+- [Phase 02]: Separate useEffect for ref sync and onResolved callback -- react-hooks/set-state-in-effect rule
+- [Phase 02]: naturalWidth > 16 threshold for Google default globe detection
 
 ### Pending Todos
 
@@ -82,6 +86,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-12T16:59:25.204Z
-Stopped at: Phase 2 context gathered
-Resume file: .planning/phases/02-core-component/02-CONTEXT.md
+Last session: 2026-04-12T17:25:25.208Z
+Stopped at: Completed 02-01-PLAN.md
+Resume file: None
