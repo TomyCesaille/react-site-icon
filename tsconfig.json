@@ -13,7 +13,8 @@
     "declaration": true,
     "declarationMap": true,
     "outDir": "dist",
-    "noEmit": true
+    "noEmit": true,
+    "types": ["vitest/globals"]
   },
   "include": ["src", "vitest.setup.ts"],
   "exclude": ["node_modules", "dist"]
