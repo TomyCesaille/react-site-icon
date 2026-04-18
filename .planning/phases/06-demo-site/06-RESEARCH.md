@@ -418,17 +418,17 @@ export default function Playground() {
 | A2 | CSS-only code preview (manual spans) is sufficient for 3-5 line JSX snippets | Don't Hand-Roll | Low -- if highlighting looks bad, can add Shiki later. Incremental. |
 | A3 | `cd .. && npm ci && npm run build && cd docs && astro build` works as build-cmd in withastro/action | Common Pitfalls | Medium -- untested in CI. If build-cmd doesn't support cd, will need workflow restructure. |
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **withastro/action build-cmd with directory changes**
+1. **withastro/action build-cmd with directory changes** — RESOLVED
    - What we know: build-cmd accepts a string command. The action runs it in the `path` directory (docs/).
    - What's unclear: Whether `cd ..` works reliably in the action's shell context. The action may set a working directory that constrains the command.
-   - Recommendation: Test in CI. Fallback: restructure deploy.yml to NOT use withastro/action for the build step. Instead, manually run `npm ci` in root, build library, `cd docs && npm ci && npx astro build`, then use `actions/upload-pages-artifact` to upload `docs/dist/`.
+   - Resolution: Test in CI. Fallback: restructure deploy.yml to NOT use withastro/action for the build step. Instead, manually run `npm ci` in root, build library, `cd docs && npm ci && npx astro build`, then use `actions/upload-pages-artifact` to upload `docs/dist/`. The existing deploy.yml from Phase 4 already handles the library build before Astro build per CONTEXT.md canonical refs (D-17). Plans read deploy.yml in read_first to confirm.
 
-2. **docs/ package-lock.json in git**
+2. **docs/ package-lock.json in git** — RESOLVED
    - What we know: withastro/action detects package manager from lockfile. docs/ needs its own lockfile.
    - What's unclear: Whether having two package-lock.json files (root and docs/) causes any tooling issues.
-   - Recommendation: Commit docs/package-lock.json. This is standard for non-workspace multi-package repos. Add `package-manager: npm` to the action config as a safety net.
+   - Resolution: Commit docs/package-lock.json. This is standard for non-workspace multi-package repos. Add `package-manager: npm` to the action config as a safety net. Plan 01 Task 1 runs `npm install` in docs/ to generate the lockfile.
 
 ## Environment Availability
 
