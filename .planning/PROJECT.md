@@ -29,7 +29,7 @@ Reliably display any website's favicon with correct fallback detection — fast 
 - [ ] React 17, 18, and 19 peer dependency support
 - [x] README with badges, install instructions, API docs, usage examples, and comparison to alternatives — Validated in Phase 5: documentation
 - [x] SEO-optimized package.json keywords for npm discoverability — Validated in Phase 5: documentation
-- [ ] Demo site: Astro + React landing page with interactive "try it" playground
+- [x] Demo site: Astro + React landing page with interactive "try it" playground — Validated in Phase 6: demo-site
 - [ ] ESLint + Prettier configuration
 - [ ] Husky + lint-staged pre-commit hooks
 
@@ -93,4 +93,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-12 — Phase 4 complete: CI/CD pipeline with quality gates, Changesets release automation via OIDC Trusted Publishing, GitHub Pages deploy workflow*
+*Last updated: 2026-04-18 — Phase 6 complete: Astro demo site with interactive Playground, dark mode, and all static landing page sections*
