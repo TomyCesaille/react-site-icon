@@ -33,7 +33,9 @@
     "test:watch": "vitest",
     "test:exports": "attw --pack .",
     "release": "npm run build && changeset publish",
-    "prepare": "husky"
+    "prepare": "husky",
+    "docs:dev": "concurrently --names lib,docs --prefix-colors cyan,magenta \"tsup --watch\" \"npm run dev --prefix docs\"",
+    "docs:build": "npm run build && npm run build --prefix docs"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -58,6 +60,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "concurrently": "^9.2.1",
     "eslint": "^10.2.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",

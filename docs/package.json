@@ -1,0 +1,17 @@
+{
+  "name": "react-site-icon-docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^6.1.5",
+    "@astrojs/react": "^5.0.3",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-site-icon": "file:.."
+  }
+}

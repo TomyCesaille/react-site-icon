@@ -1,0 +1,49 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'react-site-icon -- Display any website\'s favicon',
+  description = 'A zero-dependency React component that displays any website\'s favicon from its domain name. < 1KB, works with React 17, 18, and 19.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+    </script>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style>
+  .page-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: var(--space-3xl) var(--space-md);
+  }
+</style>
