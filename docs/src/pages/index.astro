@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import Playground from '../components/Playground';
+---
+
+<Layout>
+  <header class="header">
+    <span class="logo">react-site-icon</span>
+    <ThemeToggle />
+  </header>
+
+  <section class="hero section">
+    <h1>Display any website's favicon</h1>
+    <p class="subtitle">Zero dependencies. &lt; 1KB. Works with React 17, 18, and 19.</p>
+    <div class="badges">
+      <img src="https://img.shields.io/npm/v/react-site-icon" height="20" alt="npm version" />
+      <img src="https://img.shields.io/bundlephobia/minzip/react-site-icon" height="20" alt="bundle size" />
+      <img src="https://img.shields.io/npm/l/react-site-icon" height="20" alt="license" />
+    </div>
+  </section>
+
+  <section class="section">
+    <Playground client:visible />
+  </section>
+
+  <section class="why section">
+    <h2>Why react-site-icon?</h2>
+    <ul>
+      <li>&lt; 1KB minified + gzipped. Smaller than most icons.</li>
+      <li>Zero runtime dependencies. Only React as a peer dep.</li>
+      <li>SSR-safe. Renders fallback on the server, detects on the client.</li>
+    </ul>
+    <p class="teaser">
+      The secret? Google's default globe is always 16&times;16 &mdash; we check <code>naturalWidth</code> to detect it.
+      <a href="https://github.com/jorislacance/react-site-icon#readme">Read more in the README</a>.
+    </p>
+  </section>
+
+  <section class="install section">
+    <h2>Install</h2>
+    <pre><code>npm install react-site-icon</code></pre>
+  </section>
+
+  <footer class="footer">
+    <a href="https://github.com/jorislacance/react-site-icon">GitHub</a>
+    <span class="separator">&middot;</span>
+    <a href="https://www.npmjs.com/package/react-site-icon">npm</a>
+    <span class="separator">&middot;</span>
+    <a href="https://github.com/jorislacance/react-site-icon#readme">README</a>
+  </footer>
+</Layout>
+
+<style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .logo {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .hero h1 {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    line-height: 1.1;
+  }
+
+  .hero .subtitle {
+    color: var(--text-muted);
+    margin-top: var(--space-sm);
+  }
+
+  .badges {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+
+  .why h2,
+  .install h2 {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    margin-bottom: var(--space-md);
+  }
+
+  .why ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .why li {
+    margin-bottom: var(--space-sm);
+    padding-left: 1.2em;
+    position: relative;
+    color: var(--text);
+  }
+
+  .why li::before {
+    content: '\2022';
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+  }
+
+  .why code {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  .why .teaser {
+    margin-top: var(--space-md);
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .install pre {
+    background: var(--code-bg);
+    padding: var(--space-md);
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    overflow-x: auto;
+  }
+
+  .footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+    padding-top: var(--space-xl);
+  }
+
+  .footer a {
+    color: var(--accent);
+  }
+
+  .footer .separator {
+    margin: 0 var(--space-sm);
+  }
+</style>
