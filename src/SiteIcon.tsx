@@ -14,8 +14,8 @@ export interface SiteIconProps extends Omit<
 > {
   /** Domain to fetch the favicon for (e.g. "github.com" or "https://github.com/user/repo") */
   domain: string;
-  /** Requested favicon size in pixels. Supported sizes: 12, 16, 24, 28, 32, 40, 48, 50, 64, 96, 128. Other values will return a different size from the CDN. (default: 32) */
-  size?: number;
+  /** Requested favicon size in pixels. Unsupported values will return a 16px image from the CDN. At size 16, the component internally fetches 24px for detection accuracy. (default: 32) */
+  size?: 12 | 16 | 24 | 28 | 32 | 40 | 48 | 50 | 64 | 96 | 128;
   /** Content to render when no favicon is available */
   fallback?: ReactNode;
   /** Detection strategy: "lazy" shows fallback during detection, "eager" shows img immediately, "hidden" shows sized placeholder (default: "lazy") */
@@ -52,7 +52,9 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
   ref,
 ) {
   const normalizedDomain = normalizeDomain(domain);
-  const src = normalizedDomain ? buildUrl(normalizedDomain, size) : '';
+  // Request 24px when size is exactly 16 so detection can distinguish real favicons from the 16px globe
+  const fetchSize = size === 16 ? 24 : size;
+  const src = normalizedDomain ? buildUrl(normalizedDomain, fetchSize) : '';
 
   const [status, setStatus] = useState<'loading' | 'found' | 'missing'>(
     'loading',

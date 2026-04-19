@@ -47,6 +47,8 @@ Google's [faviconV2 CDN](https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAV
 
 After the image loads, we check `naturalWidth` on the `<img>` element. A real favicon comes back at the requested size (e.g. 64x64). The default globe is always 16x16. One comparison, zero CORS issues, single network request.
 
+> **Note:** When `size={16}`, the component internally requests 24px from the CDN (and renders at 16x16) so detection still works — otherwise both real favicons and the globe would be 16px, making them indistinguishable.
+
 **Why other approaches fail:**
 
 - **Direct `fetch()` to Google CDN** -- blocked by CORS. Google doesn't send `Access-Control-Allow-Origin`.
@@ -64,7 +66,7 @@ npm install react-site-icon
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `domain` | `string` | required | Domain to fetch the favicon for (e.g. `"github.com"` or `"https://github.com/user/repo"`) |
-| `size` | `number` | `32` | Requested favicon size in pixels. Supported: 12, 16, 24, 28, 32, 40, 48, 50, 64, 96, 128. Other values return a different size from the CDN. |
+| `size` | `number` | `32` | Requested favicon size in pixels. Supported: 12, 16, 24, 28, 32, 40, 48, 50, 64, 96, 128. Unsupported values will return a 16px image from the CDN. |
 | `fallback` | `ReactNode` | `null` | Content to render when no favicon is available |
 | `strategy` | `'lazy' \| 'eager' \| 'hidden'` | `'lazy'` | Detection strategy (see [Strategies](#strategies)) |
 | `onResolved` | `(found: boolean) => void` | -- | Called when detection completes. `true` = found, `false` = globe/error |

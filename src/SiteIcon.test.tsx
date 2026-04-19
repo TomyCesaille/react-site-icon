@@ -606,6 +606,28 @@ describe('SiteIcon', () => {
       expect(img).toHaveAttribute('src', expect.stringContaining('size=32'));
     });
 
+    it('fetches size=24 when size=16 to avoid globe collision', () => {
+      const { container } = render(<SiteIcon domain="github.com" size={16} />);
+      const img = container.querySelector('img')!;
+      expect(img).toHaveAttribute('src', expect.stringContaining('size=24'));
+    });
+
+    it('renders at 16x16 when found with size=16', () => {
+      const { container } = render(<SiteIcon domain="github.com" size={16} />);
+      const detectionImg = container.querySelector('img')!;
+      simulateImageLoad(detectionImg, 24);
+
+      const visibleImg = container.querySelector('img')!;
+      expect(visibleImg).toHaveAttribute('width', '16');
+      expect(visibleImg).toHaveAttribute('height', '16');
+    });
+
+    it('fetches size=12 directly (no workaround needed)', () => {
+      const { container } = render(<SiteIcon domain="github.com" size={12} />);
+      const img = container.querySelector('img')!;
+      expect(img).toHaveAttribute('src', expect.stringContaining('size=12'));
+    });
+
     it('renders no visible content when empty domain and no fallback', () => {
       const { container } = render(<SiteIcon domain="" />);
       // No fallback provided, no visible text content
