@@ -1,107 +1,61 @@
 ---
 gsd_state_version: 1.0
 milestone: v1.0
-milestone_name: milestone
-status: executing
-stopped_at: Phase 6 UI-SPEC approved
-last_updated: "2026-04-19T01:38:28.107Z"
-last_activity: 2026-04-19 -- Phase 06 execution started
+milestone_name: MVP
+status: complete
+last_updated: "2026-04-19T12:45:00.000Z"
+last_activity: 2026-04-19 -- Milestone v1.0 complete
 progress:
   total_phases: 6
-  completed_phases: 5
+  completed_phases: 6
   total_plans: 13
-  completed_plans: 11
-  percent: 85
+  completed_plans: 13
+  percent: 100
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-04-12)
+See: .planning/PROJECT.md (updated 2026-04-19)
 
 **Core value:** Reliably display any website's favicon with correct fallback detection -- fast, tiny, zero dependencies.
-**Current focus:** Phase 06 — demo-site
+**Current focus:** v1.0 shipped -- planning next milestone
 
 ## Current Position
 
-Phase: 06 (demo-site) — EXECUTING
-Plan: 1 of 4
-Status: Executing Phase 06
-Last activity: 2026-04-19 -- Phase 06 execution started
-
-Progress: [░░░░░░░░░░] 0%
+Milestone: v1.0 MVP -- SHIPPED 2026-04-19
+Status: Complete
+All 6 phases, 13 plans, 41 requirements satisfied.
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 11
-- Average duration: -
-- Total execution time: 0 hours
+- Total plans completed: 13
+- Timeline: 7 days (2026-04-12 to 2026-04-19)
 
 **By Phase:**
 
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| 01 | 2 | - | - |
-| 02 | 1 | - | - |
-| 03 | 2 | - | - |
-| 04 | 2 | - | - |
-| 05 | 2 | - | - |
-| 06 | 2 | - | - |
-
-**Recent Trend:**
-
-- Last 5 plans: -
-- Trend: -
-
-*Updated after each plan completion*
-| Phase 01 P01 | 2min | 2 tasks | 9 files |
-| Phase 01 P02 | 7min | 2 tasks | 9 files |
-| Phase 02 P01 | 3min | 2 tasks | 1 files |
-| Phase 03-testing P01 | 4min | 2 tasks | 5 files |
-| Phase 03-testing P02 | 1min | 1 tasks | 2 files |
-| Phase 05-documentation P01 | 2min | 2 tasks | 2 files |
-| Phase 05-documentation P02 | 1min | 1 tasks | 7 files |
+| Phase | Plans | Completed |
+|-------|-------|-----------|
+| 01 | 2 | 2026-04-12 |
+| 02 | 1 | 2026-04-12 |
+| 03 | 2 | 2026-04-12 |
+| 04 | 2 | 2026-04-12 |
+| 05 | 2 | 2026-04-12 |
+| 06 | 4 | 2026-04-19 |
 
 ## Accumulated Context
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
-
-- Roadmap: 6 phases derived from 41 requirements across 7 categories
-- Roadmap: Quality tooling (TOOL-*) grouped into Phase 1 with build setup (dev environment foundation)
-- Roadmap: Phase 5 (Docs) depends only on Phase 2 but sequenced after Phase 4 for natural flow
-- [Phase 01]: esbuildOptions callback for use client banner instead of top-level banner to avoid .d.ts injection
-- [Phase 01]: Types-first ordering in package.json exports for correct TypeScript resolution
-- [Phase 01]: React as devDependency + peerDependency, not runtime dependency -- prevents bundling
-- [Phase 01]: strictTypeChecked + stylisticTypeChecked ESLint rulesets per D-03 with projectService: true
-- [Phase 01]: Co-located test discovery pattern src/**/*.test.{ts,tsx} per D-02
-- [Phase 01]: Changesets access: public required for public npm packages
-- [Phase 02]: prevDomain state pattern instead of useRef for domain-change detection during render -- eslint-plugin-react-hooks 7.x refs rule
-- [Phase 02]: Separate useEffect for ref sync and onResolved callback -- react-hooks/set-state-in-effect rule
-- [Phase 02]: naturalWidth > 16 threshold for Google default globe detection
-- [Phase 03-testing]: vitest/globals types added to tsconfig for ESLint projectService compatibility with test globals
-- [Phase 03-testing]: ESLint test file overrides: relaxed strict type-checked rules (no-unsafe-call, no-non-null-assertion) for *.test.{ts,tsx} files only
-- [Phase 03-testing]: SSR renders lazy strategy loading state (fallback + hidden detection img) -- tests verify actual behavior, not plan assumption of no CDN img
-- [Phase 03-testing]: attw --pack . as standalone test:exports script separate from vitest (per D-07)
-- [Phase 05-documentation]: Added website-favicon and favicon-component keywords beyond DOCS-03 minimum for broader npm search
-- [Phase 05-documentation]: StackBlitz link uses GitHub integration /fork/github/ approach pointing to examples/basic -- works after publish
-- [Phase 05-documentation]: Added examples/ to ESLint ignores -- standalone StackBlitz projects have own tsconfig, not linted by root config
+All decisions logged in PROJECT.md Key Decisions table.
 
 ### Pending Todos
 
-None yet.
+None.
 
 ### Blockers/Concerns
 
-- Phase 4 (CI/CD): OIDC Trusted Publishing cannot be configured on npm until the package name is claimed. First publish may require a manual step.
-
-## Session Continuity
-
-Last session: 2026-04-12T21:39:30.637Z
-Stopped at: Phase 6 UI-SPEC approved
-Resume file: .planning/phases/06-demo-site/06-UI-SPEC.md
+None -- v1.0 shipped.
