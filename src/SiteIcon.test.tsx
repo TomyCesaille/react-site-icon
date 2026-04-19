@@ -563,9 +563,7 @@ describe('SiteIcon', () => {
         .mockReturnValue(64);
 
       const onResolved = vi.fn();
-      render(
-        <SiteIcon domain="github.com" onResolved={onResolved} />,
-      );
+      render(<SiteIcon domain="github.com" onResolved={onResolved} />);
 
       expect(onResolved).toHaveBeenCalledWith(true);
       expect(onResolved).toHaveBeenCalledTimes(1);
