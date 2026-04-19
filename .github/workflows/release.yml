@@ -58,5 +58,5 @@ jobs:
           VERSION=$(node -p "require('./package.json').version")
           gh release create "v${VERSION}" \
             --title "v${VERSION}" \
-            --notes-file CHANGELOG.md \
+            --generate-notes \
             --latest
