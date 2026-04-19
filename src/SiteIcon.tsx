@@ -52,7 +52,7 @@ function normalizeDomain(input: string): string {
 const buildUrl = (domain: string, size: number): string =>
   `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${domain}&size=${String(size)}`;
 
-const GOOGLE_DEFAULT_SIZE = 16;
+const GOOGLE_GLOBE_SIZE = 16;
 const DETECTION_MIN_FETCH_SIZE = 24;
 
 const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
@@ -69,7 +69,7 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
   const normalizedDomain = normalizeDomain(domain);
   // Request 24px when size is exactly 16 so detection can distinguish real favicons from the 16px globe
   const fetchSize =
-    size === GOOGLE_DEFAULT_SIZE ? DETECTION_MIN_FETCH_SIZE : size;
+    size === GOOGLE_GLOBE_SIZE ? DETECTION_MIN_FETCH_SIZE : size;
   const src = normalizedDomain ? buildUrl(normalizedDomain, fetchSize) : '';
 
   const [status, setStatus] = useState<'loading' | 'found' | 'missing'>(
@@ -96,7 +96,7 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
   const checkComplete = useCallback((img: HTMLImageElement | null) => {
     if (!img || statusRef.current !== 'loading') return;
     if (img.complete) {
-      const found = img.naturalWidth > GOOGLE_DEFAULT_SIZE;
+      const found = img.naturalWidth > GOOGLE_GLOBE_SIZE;
       setStatus(found ? 'found' : 'missing');
       onResolvedRef.current?.(found);
     }
@@ -123,7 +123,7 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
 
   const handleLoad = (e: React.SyntheticEvent<HTMLImageElement>): void => {
     if (domainRef.current !== normalizedDomain) return; // stale (D-08)
-    const found = e.currentTarget.naturalWidth > GOOGLE_DEFAULT_SIZE;
+    const found = e.currentTarget.naturalWidth > GOOGLE_GLOBE_SIZE;
     setStatus(found ? 'found' : 'missing');
     onResolved?.(found);
   };
