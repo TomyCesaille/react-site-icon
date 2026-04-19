@@ -1,6 +1,6 @@
 # react-site-icon
 
-Display any website's favicon from its domain. Zero dependencies. < 1KB.
+A React component to display any website's favicon from its domain. Zero dependencies. < 1KB.
 
 [![npm](https://img.shields.io/npm/v/react-site-icon)](https://www.npmjs.com/package/react-site-icon)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/react-site-icon)](https://bundlephobia.com/package/react-site-icon)
@@ -47,6 +47,8 @@ Google's [faviconV2 CDN](https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAV
 
 After the image loads, we check `naturalWidth` on the `<img>` element. A real favicon comes back at the requested size (e.g. 64x64). The default globe is always 16x16. One comparison, zero CORS issues, single network request.
 
+> **Note:** When `size={16}`, the component internally requests 24px from the CDN (and renders at 16x16) so detection still works — otherwise both real favicons and the globe would be 16px, making them indistinguishable.
+
 **Why other approaches fail:**
 
 - **Direct `fetch()` to Google CDN** -- blocked by CORS. Google doesn't send `Access-Control-Allow-Origin`.
@@ -64,7 +66,7 @@ npm install react-site-icon
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `domain` | `string` | required | Domain to fetch the favicon for (e.g. `"github.com"` or `"https://github.com/user/repo"`) |
-| `size` | `number` | `32` | Requested favicon size in pixels. Supported: 12, 16, 24, 28, 32, 40, 48, 50, 64, 96, 128. Other values return a different size from the CDN. |
+| `size` | `SiteIconSize` | `32` | Requested favicon size in pixels (`12 \| 16 \| 24 \| 28 \| 32 \| 40 \| 48 \| 50 \| 64 \| 96 \| 128`) |
 | `fallback` | `ReactNode` | `null` | Content to render when no favicon is available |
 | `strategy` | `'lazy' \| 'eager' \| 'hidden'` | `'lazy'` | Detection strategy (see [Strategies](#strategies)) |
 | `onResolved` | `(found: boolean) => void` | -- | Called when detection completes. `true` = found, `false` = globe/error |
@@ -145,7 +147,7 @@ function FaviconWithStatus({ domain }: { domain: string }) {
 | Feature | react-site-icon | favicon-stealer | DIY Google CDN | DIY domain fetch | Proxy services |
 |---------|:-:|:-:|:-:|:-:|:-:|
 | Bundle size | < 1KB | ~3.5KB | 0 | 0 | 0 |
-| Dependencies | 0 | 2 (React as dep!) | 0 | 0 | 0 |
+| Dependencies | 0 | 2 | 0 | 0 | 0 |
 | Fallback detection | Yes | No | No | No | No |
 | Network requests | 1 | 1-2 | 1 | 1+ (may fail) | 1 |
 | React versions | 17, 18, 19 | 19 only | Any | Any | Any |
