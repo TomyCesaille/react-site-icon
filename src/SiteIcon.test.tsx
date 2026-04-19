@@ -477,6 +477,118 @@ describe('SiteIcon', () => {
     });
   });
 
+  // ===== HYDRATION (PRE-LOADED IMAGES) =====
+
+  describe('hydration (pre-loaded images)', () => {
+    let completeSpy: ReturnType<typeof vi.spyOn>;
+    let naturalWidthSpy: ReturnType<typeof vi.spyOn>;
+
+    afterEach(() => {
+      completeSpy?.mockRestore();
+      naturalWidthSpy?.mockRestore();
+    });
+
+    it('resolves favicon when detection img is already loaded at mount (lazy)', () => {
+      completeSpy = vi
+        .spyOn(HTMLImageElement.prototype, 'complete', 'get')
+        .mockReturnValue(true);
+      naturalWidthSpy = vi
+        .spyOn(HTMLImageElement.prototype, 'naturalWidth', 'get')
+        .mockReturnValue(64);
+
+      const { container } = render(
+        <SiteIcon domain="github.com" fallback={<span>FB</span>} />,
+      );
+
+      // Should have transitioned to "found" -- visible img, no fallback
+      const visibleImg = container.querySelector('img');
+      expect(visibleImg).not.toBeNull();
+      expect(visibleImg).toHaveAttribute(
+        'src',
+        expect.stringContaining('url=http://github.com'),
+      );
+      expect(visibleImg).not.toHaveStyle({ display: 'none' });
+      expect(container.querySelector('span')).toBeNull();
+    });
+
+    it('shows fallback when pre-loaded detection img has globe (lazy)', () => {
+      completeSpy = vi
+        .spyOn(HTMLImageElement.prototype, 'complete', 'get')
+        .mockReturnValue(true);
+      naturalWidthSpy = vi
+        .spyOn(HTMLImageElement.prototype, 'naturalWidth', 'get')
+        .mockReturnValue(16);
+
+      const { container } = render(
+        <SiteIcon domain="github.com" fallback={<span>FB</span>} />,
+      );
+
+      // Should have transitioned to "missing" -- fallback rendered, no img
+      expect(container.querySelector('img')).toBeNull();
+      expect(container.querySelector('span')).toHaveTextContent('FB');
+    });
+
+    it('resolves favicon when img is already loaded at mount (eager)', () => {
+      completeSpy = vi
+        .spyOn(HTMLImageElement.prototype, 'complete', 'get')
+        .mockReturnValue(true);
+      naturalWidthSpy = vi
+        .spyOn(HTMLImageElement.prototype, 'naturalWidth', 'get')
+        .mockReturnValue(64);
+
+      const { container } = render(
+        <SiteIcon
+          domain="github.com"
+          strategy="eager"
+          fallback={<span>FB</span>}
+        />,
+      );
+
+      // Should have transitioned to "found" -- visible img remains
+      const visibleImg = container.querySelector('img');
+      expect(visibleImg).not.toBeNull();
+      expect(visibleImg).toHaveAttribute(
+        'src',
+        expect.stringContaining('url=http://github.com'),
+      );
+      expect(container.querySelector('span')).toBeNull();
+    });
+
+    it('calls onResolved when img is pre-loaded', () => {
+      completeSpy = vi
+        .spyOn(HTMLImageElement.prototype, 'complete', 'get')
+        .mockReturnValue(true);
+      naturalWidthSpy = vi
+        .spyOn(HTMLImageElement.prototype, 'naturalWidth', 'get')
+        .mockReturnValue(64);
+
+      const onResolved = vi.fn();
+      render(
+        <SiteIcon domain="github.com" onResolved={onResolved} />,
+      );
+
+      expect(onResolved).toHaveBeenCalledWith(true);
+      expect(onResolved).toHaveBeenCalledTimes(1);
+    });
+
+    it('shows fallback when pre-loaded detection img has naturalWidth=0 (error)', () => {
+      completeSpy = vi
+        .spyOn(HTMLImageElement.prototype, 'complete', 'get')
+        .mockReturnValue(true);
+      naturalWidthSpy = vi
+        .spyOn(HTMLImageElement.prototype, 'naturalWidth', 'get')
+        .mockReturnValue(0);
+
+      const { container } = render(
+        <SiteIcon domain="github.com" fallback={<span>FB</span>} />,
+      );
+
+      // Should have transitioned to "missing" -- fallback rendered, no img
+      expect(container.querySelector('img')).toBeNull();
+      expect(container.querySelector('span')).toHaveTextContent('FB');
+    });
+  });
+
   // ===== DEFAULT PROPS =====
 
   describe('default props', () => {
