@@ -104,8 +104,8 @@ Plans:
 Plans:
 - [x] 06-01-PLAN.md -- Demo site shell: Astro scaffold, CSS theme, dark mode, landing page sections (DEMO-01, DEMO-03)
 - [x] 06-02-PLAN.md -- Interactive Playground component with domain grid, code preview, advanced panel (DEMO-02)
-- [ ] 06-03-PLAN.md -- [gap closure] Fix SiteIcon hydration bug: post-mount detection for cached/pre-loaded images (COMP-09)
-- [ ] 06-04-PLAN.md -- [gap closure] Add strategy descriptions to Playground advanced panel (DEMO-02)
+- [x] 06-03-PLAN.md -- [gap closure] Fix SiteIcon hydration bug: post-mount detection for cached/pre-loaded images (COMP-09)
+- [x] 06-04-PLAN.md -- [gap closure] Add strategy descriptions to Playground advanced panel (DEMO-02)
 **UI hint**: yes
 
 ## Progress
