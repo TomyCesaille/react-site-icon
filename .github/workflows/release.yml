@@ -34,7 +34,7 @@ jobs:
       #   1. Run `npm publish` locally to claim the package name
       #   2. Go to https://www.npmjs.com/package/react-site-icon/access
       #   3. Add GitHub Actions as trusted publisher:
-      #      - Owner: jorislacance
+      #      - Owner: TomyCesaille
       #      - Repository: react-site-icon
       #      - Workflow: release.yml
       #   4. After that, all publishes are automated via this workflow

@@ -5,8 +5,8 @@ Display any website's favicon from its domain. Zero dependencies. < 1KB.
 [![npm](https://img.shields.io/npm/v/react-site-icon)](https://www.npmjs.com/package/react-site-icon)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/react-site-icon)](https://bundlephobia.com/package/react-site-icon)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff)](#)
-[![license](https://img.shields.io/npm/l/react-site-icon)](https://github.com/jorislacance/react-site-icon/blob/main/LICENSE)
-[![CI](https://img.shields.io/github/actions/workflow/status/jorislacance/react-site-icon/ci.yml?branch=main)](https://github.com/jorislacance/react-site-icon/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/react-site-icon)](https://github.com/TomyCesaille/react-site-icon/blob/main/LICENSE)
+[![CI](https://img.shields.io/github/actions/workflow/status/TomyCesaille/react-site-icon/ci.yml?branch=main)](https://github.com/TomyCesaille/react-site-icon/actions/workflows/ci.yml)
 
 ```tsx
 import { SiteIcon } from 'react-site-icon';
@@ -21,7 +21,7 @@ import { SiteIcon } from 'react-site-icon';
 />
 ```
 
-[Try it on StackBlitz](https://stackblitz.com/fork/github/jorislacance/react-site-icon/tree/main/examples/basic)
+[Try it on StackBlitz](https://stackblitz.com/fork/github/TomyCesaille/react-site-icon/tree/main/examples/basic)
 
 ## Why
 
@@ -155,7 +155,7 @@ function FaviconWithStatus({ domain }: { domain: string }) {
 ## Contributing
 
 ```bash
-git clone https://github.com/jorislacance/react-site-icon.git
+git clone https://github.com/TomyCesaille/react-site-icon.git
 cd react-site-icon
 npm install
 npm test
