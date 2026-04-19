@@ -21,7 +21,7 @@ import { SiteIcon } from 'react-site-icon';
 />
 ```
 
-[Try it on StackBlitz](https://stackblitz.com/fork/github/TomyCesaille/react-site-icon/tree/main/examples/basic)
+[Live demo](https://jorislacance.github.io/react-site-icon/) | [Try it on StackBlitz](https://stackblitz.com/fork/github/TomyCesaille/react-site-icon/tree/main/examples/basic)
 
 ## Why
 
