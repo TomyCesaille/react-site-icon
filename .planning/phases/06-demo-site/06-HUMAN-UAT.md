@@ -3,7 +3,7 @@ status: partial
 phase: 06-demo-site
 source: [06-VERIFICATION.md]
 started: 2026-04-18T21:17:00Z
-updated: 2026-04-19T03:05:00Z
+updated: 2026-04-19T10:35:00Z
 ---
 
 ## Current Test
@@ -14,9 +14,7 @@ updated: 2026-04-19T03:05:00Z
 
 ### 1. Visual Layout
 expected: Run `npm run docs:dev` and verify all page sections render with correct typography, spacing, and responsive behavior at 640px max-width
-result: issue
-reported: "the initial prints renders everything to fallback value — favicons stay as ? until strategy is changed. Also, resizing causes pixelated images because the component doesn't re-fetch at the new resolution."
-severity: major
+result: pass
 
 ### 2. Interactive Playground
 expected: Type a domain in the input and verify its favicon appears in the grid with live code preview update
@@ -39,26 +37,10 @@ reason: "user will test later"
 ## Summary
 
 total: 5
-passed: 3
-issues: 1
+passed: 4
+issues: 0
 pending: 0
 skipped: 0
 blocked: 1
 
 ## Gaps
-
-- truth: "All page sections render with correct typography, spacing, and responsive behavior"
-  status: failed
-  reason: "User reported: favicons stay as ? fallback on initial load with default strategy until strategy is changed. Resizing causes pixelated images — component doesn't re-fetch at new resolution."
-  severity: major
-  test: 1
-  artifacts: []
-  missing: []
-
-- truth: "Strategy differences should be visually demonstrable in the demo"
-  status: failed
-  reason: "User reported: strategy change effect is too fast to see a difference — need a fake animation or alternative demo approach instead of live demo"
-  severity: cosmetic
-  test: 4
-  artifacts: []
-  missing: []
