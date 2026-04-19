@@ -622,11 +622,17 @@ describe('SiteIcon', () => {
       expect(visibleImg).toHaveAttribute('height', '16');
     });
 
-    it('fetches size=12 directly (no workaround needed)', () => {
-      const { container } = render(<SiteIcon domain="github.com" size={12} />);
-      const img = container.querySelector('img')!;
-      expect(img).toHaveAttribute('src', expect.stringContaining('size=12'));
-    });
+    it.each([12, 24, 28, 32, 40, 48, 50, 64, 96, 128] as const)(
+      'fetches size=%i directly (no workaround needed)',
+      (s) => {
+        const { container } = render(<SiteIcon domain="github.com" size={s} />);
+        const img = container.querySelector('img')!;
+        expect(img).toHaveAttribute(
+          'src',
+          expect.stringContaining('size=' + String(s)),
+        );
+      },
+    );
 
     it('renders no visible content when empty domain and no fallback', () => {
       const { container } = render(<SiteIcon domain="" />);
