@@ -60,6 +60,9 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
   const [prevDomain, setPrevDomain] = useState(normalizedDomain);
   // Ref for stale detection in event handlers only (not accessed during render)
   const domainRef = useRef(normalizedDomain);
+  // Refs for post-mount hydration check (.complete detection)
+  const detectionRef = useRef<HTMLImageElement>(null);
+  const eagerInternalRef = useRef<HTMLImageElement>(null);
 
   // Domain change: reset status during render (D-07, D-19)
   // This is the React-approved "adjust state during render" pattern
@@ -79,6 +82,25 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
       onResolved?.(false);
     }
   }, [normalizedDomain, onResolved]);
+
+  // Post-mount hydration check: detect already-loaded images (SSR pre-fetch / browser cache)
+  // Runs on every render with status === 'loading' guard so it only fires once per detection cycle.
+  // No dependency array is intentional -- useEffect with deps could miss the hydration window.
+  useEffect(() => {
+    const img =
+      strategy === 'eager'
+        ? eagerInternalRef.current
+        : detectionRef.current;
+    if (img && img.complete && status === 'loading') {
+      if (img.naturalWidth > GOOGLE_DEFAULT_SIZE) {
+        setStatus('found');
+        onResolved?.(true);
+      } else {
+        setStatus('missing');
+        onResolved?.(false);
+      }
+    }
+  });
 
   const handleLoad = (e: React.SyntheticEvent<HTMLImageElement>): void => {
     if (domainRef.current !== normalizedDomain) return; // stale (D-08)
@@ -108,6 +130,7 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
   // Loading: differs by strategy
   const detectionImg = (
     <img
+      ref={detectionRef}
       key={normalizedDomain}
       src={src}
       style={{ display: 'none' }}
@@ -122,7 +145,11 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
       // D-03: Show img immediately, detect on same img's onLoad
       return (
         <img
-          ref={ref}
+          ref={(el) => {
+            eagerInternalRef.current = el;
+            if (typeof ref === 'function') ref(el);
+            else if (ref) ref.current = el;
+          }}
           src={src}
           width={size}
           height={size}
