@@ -1,5 +1,6 @@
 import {
   forwardRef,
+  useCallback,
   useEffect,
   useRef,
   useState,
@@ -13,7 +14,7 @@ export interface SiteIconProps extends Omit<
 > {
   /** Domain to fetch the favicon for (e.g. "github.com" or "https://github.com/user/repo") */
   domain: string;
-  /** Requested favicon size in pixels (default: 32) */
+  /** Requested favicon size in pixels. Supported sizes: 12, 16, 24, 28, 32, 40, 48, 50, 64, 96, 128. Other values will return a different size from the CDN. (default: 32) */
   size?: number;
   /** Content to render when no favicon is available */
   fallback?: ReactNode;
@@ -60,9 +61,28 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
   const [prevDomain, setPrevDomain] = useState(normalizedDomain);
   // Ref for stale detection in event handlers only (not accessed during render)
   const domainRef = useRef(normalizedDomain);
-  // Refs for post-mount hydration check (.complete detection)
-  const detectionRef = useRef<HTMLImageElement>(null);
-  const eagerInternalRef = useRef<HTMLImageElement>(null);
+  // Ref callback for post-mount hydration check (.complete detection)
+  // When the img element mounts, check if the browser already loaded it (SSR pre-fetch / cache).
+  // Using a ref callback avoids calling setState inside useEffect (lint-safe).
+  const statusRef = useRef(status);
+  const onResolvedRef = useRef(onResolved);
+
+  useEffect(() => {
+    statusRef.current = status;
+  }, [status]);
+
+  useEffect(() => {
+    onResolvedRef.current = onResolved;
+  }, [onResolved]);
+
+  const checkComplete = useCallback((img: HTMLImageElement | null) => {
+    if (!img || statusRef.current !== 'loading') return;
+    if (img.complete) {
+      const found = img.naturalWidth > GOOGLE_DEFAULT_SIZE;
+      setStatus(found ? 'found' : 'missing');
+      onResolvedRef.current?.(found);
+    }
+  }, []);
 
   // Domain change: reset status during render (D-07, D-19)
   // This is the React-approved "adjust state during render" pattern
@@ -82,25 +102,6 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
       onResolved?.(false);
     }
   }, [normalizedDomain, onResolved]);
-
-  // Post-mount hydration check: detect already-loaded images (SSR pre-fetch / browser cache)
-  // Runs on every render with status === 'loading' guard so it only fires once per detection cycle.
-  // No dependency array is intentional -- useEffect with deps could miss the hydration window.
-  useEffect(() => {
-    const img =
-      strategy === 'eager'
-        ? eagerInternalRef.current
-        : detectionRef.current;
-    if (img && img.complete && status === 'loading') {
-      if (img.naturalWidth > GOOGLE_DEFAULT_SIZE) {
-        setStatus('found');
-        onResolved?.(true);
-      } else {
-        setStatus('missing');
-        onResolved?.(false);
-      }
-    }
-  });
 
   const handleLoad = (e: React.SyntheticEvent<HTMLImageElement>): void => {
     if (domainRef.current !== normalizedDomain) return; // stale (D-08)
@@ -130,7 +131,7 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
   // Loading: differs by strategy
   const detectionImg = (
     <img
-      ref={detectionRef}
+      ref={checkComplete}
       key={normalizedDomain}
       src={src}
       style={{ display: 'none' }}
@@ -146,7 +147,7 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
       return (
         <img
           ref={(el) => {
-            eagerInternalRef.current = el;
+            checkComplete(el);
             if (typeof ref === 'function') ref(el);
             else if (ref) ref.current = el;
           }}
