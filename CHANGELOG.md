@@ -1,5 +1,11 @@
 # react-site-icon
 
+## 0.1.1
+
+### Patch Changes
+
+- [`331d53a`](https://github.com/TomyCesaille/react-site-icon/commit/331d53a5027a3bf1bf28cc93789d4297c5dbb587) Thanks [@TomyCesaille](https://github.com/TomyCesaille)! - fix: skip husky in CI, build library before Astro site, fix favicon path, document supported CDN sizes
+
 ## 0.1.0
 
 ### Minor Changes
