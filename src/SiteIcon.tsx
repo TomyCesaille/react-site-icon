@@ -8,14 +8,28 @@ import {
   type ReactNode,
 } from 'react';
 
+/** Supported favicon sizes from Google's faviconV2 CDN. */
+export type SiteIconSize =
+  | 12
+  | 16
+  | 24
+  | 28
+  | 32
+  | 40
+  | 48
+  | 50
+  | 64
+  | 96
+  | 128;
+
 export interface SiteIconProps extends Omit<
   ComponentPropsWithoutRef<'img'>,
   'src' | 'width' | 'height' | 'onLoad' | 'onError'
 > {
   /** Domain to fetch the favicon for (e.g. "github.com" or "https://github.com/user/repo") */
   domain: string;
-  /** Requested favicon size in pixels. Unsupported values will return a 16px image from the CDN. At size 16, the component internally fetches 24px for detection accuracy. (default: 32) */
-  size?: 12 | 16 | 24 | 28 | 32 | 40 | 48 | 50 | 64 | 96 | 128;
+  /** Requested favicon size in pixels. At size 16, the component internally fetches 24px for detection accuracy. (default: 32) */
+  size?: SiteIconSize;
   /** Content to render when no favicon is available */
   fallback?: ReactNode;
   /** Detection strategy: "lazy" shows fallback during detection, "eager" shows img immediately, "hidden" shows sized placeholder (default: "lazy") */
