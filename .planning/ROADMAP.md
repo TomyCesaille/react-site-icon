@@ -100,7 +100,12 @@ Plans:
   1. The demo site loads as a static page with marketing content explaining what, why, and how
   2. Users can type any domain into a playground input and see the live favicon (or fallback) rendered immediately
   3. The demo site is accessible at the GitHub Pages URL and deploys automatically on push to main
-**Plans**: TBD
+**Plans:** 4 plans
+Plans:
+- [x] 06-01-PLAN.md -- Demo site shell: Astro scaffold, CSS theme, dark mode, landing page sections (DEMO-01, DEMO-03)
+- [x] 06-02-PLAN.md -- Interactive Playground component with domain grid, code preview, advanced panel (DEMO-02)
+- [ ] 06-03-PLAN.md -- [gap closure] Fix SiteIcon hydration bug: post-mount detection for cached/pre-loaded images (COMP-09)
+- [ ] 06-04-PLAN.md -- [gap closure] Add strategy descriptions to Playground advanced panel (DEMO-02)
 **UI hint**: yes
 
 ## Progress
@@ -116,4 +121,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 3. Testing | 0/2 | Planning complete | - |
 | 4. CI/CD and Release Automation | 0/2 | Planning complete | - |
 | 5. Documentation | 0/2 | Planning complete | - |
-| 6. Demo Site | 0/TBD | Not started | - |
+| 6. Demo Site | 2/4 | Gap closure planned | - |
