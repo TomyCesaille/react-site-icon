@@ -53,6 +53,7 @@ const buildUrl = (domain: string, size: number): string =>
   `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${domain}&size=${String(size)}`;
 
 const GOOGLE_DEFAULT_SIZE = 16;
+const DETECTION_MIN_FETCH_SIZE = 24;
 
 const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
   {
@@ -67,7 +68,8 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
 ) {
   const normalizedDomain = normalizeDomain(domain);
   // Request 24px when size is exactly 16 so detection can distinguish real favicons from the 16px globe
-  const fetchSize = size === 16 ? 24 : size;
+  const fetchSize =
+    size === GOOGLE_DEFAULT_SIZE ? DETECTION_MIN_FETCH_SIZE : size;
   const src = normalizedDomain ? buildUrl(normalizedDomain, fetchSize) : '';
 
   const [status, setStatus] = useState<'loading' | 'found' | 'missing'>(
