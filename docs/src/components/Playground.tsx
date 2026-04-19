@@ -20,6 +20,12 @@ export default function Playground() {
   );
   const [showAdvanced, setShowAdvanced] = useState(false);
 
+  const strategyDescriptions: Record<string, string> = {
+    lazy: 'Shows your fallback while detecting the favicon. Swap happens after detection completes. Best for most use cases.',
+    eager: 'Shows the favicon image immediately, even before detection. May briefly show the Google globe for missing favicons.',
+    hidden: 'Shows an empty placeholder (sized box) while detecting. No content shift, but a blank space during loading.',
+  };
+
   const trimmed = domain.trim();
   const allDomains = trimmed ? [trimmed, ...DEFAULT_DOMAINS] : DEFAULT_DOMAINS;
   const displayDomain = trimmed || 'github.com';
@@ -217,7 +223,7 @@ export default function Playground() {
       <div
         id="advanced-panel"
         style={{
-          maxHeight: showAdvanced ? '200px' : '0',
+          maxHeight: showAdvanced ? '260px' : '0',
           overflow: 'hidden',
           transition: 'max-height 200ms ease-out',
         }}
@@ -283,6 +289,18 @@ export default function Playground() {
             />
           </label>
         </div>
+        <p
+          style={{
+            fontSize: '13px',
+            color: 'var(--text-muted)',
+            margin: '0',
+            padding: '0 0 var(--space-sm) 0',
+            lineHeight: '1.4',
+            fontStyle: 'italic',
+          }}
+        >
+          {strategyDescriptions[strategy]}
+        </p>
       </div>
     </section>
   );
