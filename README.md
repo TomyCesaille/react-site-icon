@@ -145,7 +145,7 @@ function FaviconWithStatus({ domain }: { domain: string }) {
 | Feature | react-site-icon | favicon-stealer | DIY Google CDN | DIY domain fetch | Proxy services |
 |---------|:-:|:-:|:-:|:-:|:-:|
 | Bundle size | < 1KB | ~3.5KB | 0 | 0 | 0 |
-| Dependencies | 0 | 2 (React as dep!) | 0 | 0 | 0 |
+| Dependencies | 0 | 2 | 0 | 0 | 0 |
 | Fallback detection | Yes | No | No | No | No |
 | Network requests | 1 | 1-2 | 1 | 1+ (may fail) | 1 |
 | React versions | 17, 18, 19 | 19 only | Any | Any | Any |
