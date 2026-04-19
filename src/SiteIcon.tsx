@@ -102,19 +102,19 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
     }
   }, []);
 
-  // Domain change: reset status during render (D-07, D-19)
+  // Domain change: reset status during render
   // This is the React-approved "adjust state during render" pattern
   if (prevDomain !== normalizedDomain) {
     setPrevDomain(normalizedDomain);
     setStatus(normalizedDomain ? 'loading' : 'missing');
   }
 
-  // Sync ref for stale detection in handlers (D-08)
+  // Sync ref for stale detection in handlers
   useEffect(() => {
     domainRef.current = normalizedDomain;
   }, [normalizedDomain]);
 
-  // Fire onResolved(false) for empty domain (D-19)
+  // Fire onResolved(false) for empty domain
   useEffect(() => {
     if (!normalizedDomain) {
       onResolved?.(false);
@@ -122,26 +122,26 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
   }, [normalizedDomain, onResolved]);
 
   const handleLoad = (e: React.SyntheticEvent<HTMLImageElement>): void => {
-    if (domainRef.current !== normalizedDomain) return; // stale (D-08)
+    if (domainRef.current !== normalizedDomain) return; // stale
     const found = e.currentTarget.naturalWidth > GOOGLE_GLOBE_SIZE;
     setStatus(found ? 'found' : 'missing');
     onResolved?.(found);
   };
 
   const handleError = (): void => {
-    if (domainRef.current !== normalizedDomain) return; // stale (D-08)
+    if (domainRef.current !== normalizedDomain) return; // stale
     setStatus('missing');
     onResolved?.(false);
   };
 
-  // Found: identical for all strategies (D-10, D-11, D-12, D-13)
+  // Found: identical for all strategies
   if (status === 'found') {
     return (
       <img ref={ref} src={src} width={size} height={size} alt="" {...rest} />
     );
   }
 
-  // Missing: identical for all strategies (D-14)
+  // Missing: identical for all strategies
   if (status === 'missing') {
     return <>{fallback}</>;
   }
@@ -161,7 +161,7 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
 
   switch (strategy) {
     case 'eager':
-      // D-03: Show img immediately, detect on same img's onLoad
+      // Show img immediately, detect on same img's onLoad
       return (
         <img
           ref={(el) => {
@@ -179,7 +179,7 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
         />
       );
     case 'hidden':
-      // D-04: Sized empty span + hidden detection img
+      // Sized empty span + hidden detection img
       return (
         <>
           <span
@@ -189,7 +189,7 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
         </>
       );
     default:
-      // 'lazy' (D-02): Fallback + hidden detection img
+      // Fallback + hidden detection img
       return (
         <>
           {fallback}

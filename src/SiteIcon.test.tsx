@@ -3,7 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 import { renderToString } from 'react-dom/server';
 import { SiteIcon } from './SiteIcon';
 
-// -- Helpers (D-01, D-02) --
+// -- Helpers --
 
 function simulateImageLoad(img: HTMLImageElement, naturalWidth: number): void {
   Object.defineProperty(img, 'naturalWidth', {
