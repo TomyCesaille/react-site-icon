@@ -1,6 +1,6 @@
 # react-site-icon
 
-Display any website's favicon from its domain. Zero dependencies. < 1KB.
+A React component to display any website's favicon from its domain. Zero dependencies. < 1KB.
 
 [![npm](https://img.shields.io/npm/v/react-site-icon)](https://www.npmjs.com/package/react-site-icon)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/react-site-icon)](https://bundlephobia.com/package/react-site-icon)
