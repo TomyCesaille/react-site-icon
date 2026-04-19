@@ -51,16 +51,16 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Demo Site
 
-- [ ] **DEMO-01**: Astro + React landing page with marketing-style content (what, why, how)
-- [ ] **DEMO-02**: Interactive "try any domain" playground with live favicon preview
-- [ ] **DEMO-03**: Demo site deployed to GitHub Pages via GitHub Actions
+- [x] **DEMO-01**: Astro + React landing page with marketing-style content (what, why, how)
+- [x] **DEMO-02**: Interactive "try any domain" playground with live favicon preview
+- [x] **DEMO-03**: Demo site deployed to GitHub Pages via GitHub Actions
 
 ### CI/CD
 
-- [ ] **CICD-01**: GitHub Actions CI workflow -- lint, test, build on pull requests and pushes to main
-- [ ] **CICD-02**: GitHub Actions CD workflow -- auto-publish to npm via OIDC Trusted Publishing on git tag push
-- [ ] **CICD-03**: GitHub Actions workflow deploys demo site to GitHub Pages on push to main
-- [ ] **CICD-04**: Changesets integration -- version PR automation and npm publish on merge
+- [x] **CICD-01**: GitHub Actions CI workflow -- lint, test, build on pull requests and pushes to main
+- [x] **CICD-02**: GitHub Actions CD workflow -- auto-publish to npm via OIDC Trusted Publishing on git tag push
+- [x] **CICD-03**: GitHub Actions workflow deploys demo site to GitHub Pages on push to main
+- [x] **CICD-04**: Changesets integration -- version PR automation and npm publish on merge
 
 ### Quality Tooling
 
@@ -139,13 +139,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DOCS-04 | Phase 5 | Complete |
 | DOCS-05 | Phase 5 | Complete |
 | DOCS-06 | Phase 5 | Complete |
-| DEMO-01 | Phase 6 | Pending |
-| DEMO-02 | Phase 6 | Pending |
-| DEMO-03 | Phase 6 | Pending |
-| CICD-01 | Phase 4 | Pending |
-| CICD-02 | Phase 4 | Pending |
-| CICD-03 | Phase 4 | Pending |
-| CICD-04 | Phase 4 | Pending |
+| DEMO-01 | Phase 6 | Complete |
+| DEMO-02 | Phase 6 | Complete |
+| DEMO-03 | Phase 6 | Complete |
+| CICD-01 | Phase 4 | Complete |
+| CICD-02 | Phase 4 | Complete |
+| CICD-03 | Phase 4 | Complete |
+| CICD-04 | Phase 4 | Complete |
 | TOOL-01 | Phase 1 | Complete |
 | TOOL-02 | Phase 1 | Complete |
 | TOOL-03 | Phase 1 | Complete |
@@ -158,4 +158,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-04-12*
-*Last updated: 2026-04-12 after roadmap creation*
+*Last updated: 2026-04-19 after milestone audit*
