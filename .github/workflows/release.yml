@@ -22,7 +22,6 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
-          registry-url: 'https://registry.npmjs.org'
 
       - run: npm ci
 
@@ -49,10 +48,5 @@ jobs:
       - name: Publish to npm (OIDC)
         if: steps.check.outputs.should_publish == 'true'
         run: |
-          # Overwrite .npmrc to remove token placeholder — forces npm to use OIDC
-          echo "//registry.npmjs.org/:_authToken=" > "$NPM_CONFIG_USERCONFIG"
-          echo "registry=https://registry.npmjs.org/" >> "$NPM_CONFIG_USERCONFIG"
+          npm install -g npm@latest
           npm publish --provenance --access public
-        env:
-          # Clear any token injected by changesets/action
-          NODE_AUTH_TOKEN: ''
