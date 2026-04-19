@@ -33,7 +33,7 @@
     "test:watch": "vitest",
     "test:exports": "attw --pack .",
     "release": "npm run build && changeset publish",
-    "prepare": "husky",
+    "prepare": "husky || true",
     "docs:dev": "concurrently --names lib,docs --prefix-colors cyan,magenta \"tsup --watch\" \"npm run dev --prefix docs\"",
     "docs:build": "npm run build && npm run build --prefix docs"
   },
