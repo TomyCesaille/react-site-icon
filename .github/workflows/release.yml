@@ -25,9 +25,12 @@ jobs:
 
       - run: npm ci
 
+      - name: Build library
+        run: npm run build
+
       - name: Create Release PR or Publish
         uses: changesets/action@v1
         with:
-          publish: npm run build && npm publish --provenance --access public
+          publish: npm publish --provenance --access public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
