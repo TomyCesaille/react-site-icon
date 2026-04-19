@@ -22,15 +22,32 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
 
       - run: npm ci
 
       - name: Build library
         run: npm run build
 
-      - name: Create Release PR or Publish
+      - name: Create Release PR
         uses: changesets/action@v1
-        with:
-          publish: npm publish --provenance --access public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check if publish needed
+        id: check
+        run: |
+          CURRENT=$(node -p "require('./package.json').version")
+          PUBLISHED=$(npm view react-site-icon version 2>/dev/null || echo "0.0.0")
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          echo "published=$PUBLISHED" >> "$GITHUB_OUTPUT"
+          if [ "$CURRENT" != "$PUBLISHED" ]; then
+            echo "should_publish=true" >> "$GITHUB_OUTPUT"
+            echo "Publishing $CURRENT (npm has $PUBLISHED)"
+          else
+            echo "Version $CURRENT already published — skipping"
+          fi
+
+      - name: Publish to npm
+        if: steps.check.outputs.should_publish == 'true'
+        run: npm publish --provenance --access public
