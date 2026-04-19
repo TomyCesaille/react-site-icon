@@ -1,5 +1,11 @@
 # react-site-icon
 
+## 0.1.2
+
+### Patch Changes
+
+- [`ac71548`](https://github.com/TomyCesaille/react-site-icon/commit/ac71548745a47ccacaf3067501d487391238ca76) Thanks [@TomyCesaille](https://github.com/TomyCesaille)! - Strip internal GSD decision markers (D-XX) from source code comments
+
 ## 0.1.1
 
 ### Patch Changes

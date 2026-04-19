@@ -1,6 +1,6 @@
 {
   "name": "react-site-icon",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A zero-dependency React component that displays any website's favicon from its domain name",
   "type": "module",
   "main": "./dist/index.cjs",
