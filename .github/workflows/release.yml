@@ -20,7 +20,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: 'npm'
 
       - run: npm ci
@@ -47,6 +47,4 @@ jobs:
 
       - name: Publish to npm (OIDC)
         if: steps.check.outputs.should_publish == 'true'
-        run: |
-          npm install -g npm@latest
-          npm publish --provenance --access public
+        run: npm publish --provenance --access public
