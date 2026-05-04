@@ -33,7 +33,7 @@ import Playground from '../components/Playground';
   </header>
 
   <section class="hero section">
-    <h1>A React component to display any website's favicon</h1>
+    <h1>Favicons that just work.</h1>
     <p class="subtitle">Display any site's favicon effortlessly. Zero deps. &lt; 1KB.</p>
     <div class="badges">
       <a href="https://www.npmjs.com/package/react-site-icon" target="_blank" rel="noopener noreferrer" aria-label="View react-site-icon on npm">
@@ -53,7 +53,7 @@ import Playground from '../components/Playground';
   <section class="why section">
     <h2>Why react-site-icon?</h2>
     <ul>
-      <li>Reliably distinguishes real favicons from Google's default globe — no other lib does.</li>
+      <li>Reliably distinguishes real favicons from Google's default globe (that fallback when no favicon exists) — no other lib does.</li>
       <li>Sharp at every size. Auto-bumps the fetch to 24px when you ask for 16px so detection still works.</li>
       <li>Accepts any domain shape — hostname, URL, URL with path. Normalized internally.</li>
       <li>SSR-safe and hydration-aware. Cached or prefetched images don't get stuck on the fallback.</li>
@@ -212,11 +212,17 @@ import Playground from '../components/Playground';
     40%, 80% { transform: rotate(10deg); }
   }
 
-  @media (max-width: 500px) {
+  /* Below 672px the page-wrapper (max-width: 640px) hits viewport edges,
+     pushing the theme toggle flush right. Shrink the corner so its bottom
+     edge stays clear of the toggle's click target. */
+  @media (max-width: 672px) {
     .github-corner svg {
       width: 60px;
       height: 60px;
     }
+  }
+
+  @media (max-width: 500px) {
     .github-corner:hover .octo-arm {
       animation: none;
     }
