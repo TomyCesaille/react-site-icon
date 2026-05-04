@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: MVP
 status: complete
-last_updated: "2026-04-19T12:45:00.000Z"
-last_activity: 2026-04-19 -- Milestone v1.0 complete
+last_updated: "2026-05-04T18:24:33.662Z"
+last_activity: 2026-05-04 -- Completed quick task 260504-scg: Refresh README and demo site pitch to reflect full library value
 progress:
   total_phases: 6
   completed_phases: 6
@@ -59,3 +59,10 @@ None.
 ### Blockers/Concerns
 
 None -- v1.0 shipped.
+
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 260504-rzz | Add GitHub corner banner and link npm badge to package page on demo site | 2026-05-04 | 8637b73 | [260504-rzz-add-github-corner-banner-and-link-npm-ba](./quick/260504-rzz-add-github-corner-banner-and-link-npm-ba/) |
+| 260504-scg | Refresh README and demo site pitch to reflect full library value | 2026-05-04 | 22c7061 | [260504-scg-refresh-readme-and-demo-site-pitch-to-re](./quick/260504-scg-refresh-readme-and-demo-site-pitch-to-re/) |
