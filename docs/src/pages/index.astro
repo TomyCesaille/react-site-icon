@@ -34,7 +34,7 @@ import Playground from '../components/Playground';
 
   <section class="hero section">
     <h1>A React component to display any website's favicon</h1>
-    <p class="subtitle">Zero dependencies. &lt; 1KB.</p>
+    <p class="subtitle">Display any site's favicon effortlessly. Zero deps. &lt; 1KB.</p>
     <div class="badges">
       <a href="https://www.npmjs.com/package/react-site-icon" target="_blank" rel="noopener noreferrer" aria-label="View react-site-icon on npm">
         <img src="https://img.shields.io/npm/v/react-site-icon" height="20" alt="npm version" />
@@ -53,9 +53,11 @@ import Playground from '../components/Playground';
   <section class="why section">
     <h2>Why react-site-icon?</h2>
     <ul>
-      <li>&lt; 1KB minified + gzipped. Smaller than most icons.</li>
-      <li>Zero runtime dependencies. Only React as a peer dep.</li>
-      <li>SSR-safe. Renders fallback on the server, detects on the client.</li>
+      <li>Reliably distinguishes real favicons from Google's default globe — no other lib does.</li>
+      <li>Sharp at every size. Auto-bumps the fetch to 24px when you ask for 16px so detection still works.</li>
+      <li>Accepts any domain shape — hostname, URL, URL with path. Normalized internally.</li>
+      <li>SSR-safe and hydration-aware. Cached or prefetched images don't get stuck on the fallback.</li>
+      <li>&lt; 1KB minified + gzipped. Zero runtime dependencies. Works with React 17, 18, and 19.</li>
     </ul>
   </section>
 
