@@ -30,7 +30,7 @@ Favicons sound easy. They aren't. Different CDNs, missing icons, blurry upscales
 **`react-site-icon` handles them for you:**
 
 - **Reliable fallback detection.** Distinguishes real favicons from Google's default globe via a `naturalWidth` check (see [How it works](#how-it-works) below) — no other React favicon library does this.
-- **Sharp at every size.** Only exposes sizes Google's CDN actually serves (`12 | 16 | 24 | 28 | 32 | 40 | 48 | 50 | 64 | 96 | 128`) — no blurry upscaling. At `size={16}` the lib transparently fetches `24px` so detection still works, then renders at the size you asked for.
+- **Sharp at every size.** Only exposes sizes Google's CDN actually serves (`12 | 16 | 24 | 28 | 32 | 40 | 48 | 50 | 64 | 96 | 128`) — no blurry upscaling.
 - **Forgiving domain input.** `"github.com"`, `"https://github.com"`, `"https://github.com/user/repo"` — all work. Internally normalized to hostname.
 - **Three render strategies.** Pick `lazy` (fallback during load), `eager` (fastest paint), or `hidden` (zero layout shift).
 - **SSR + hydration aware.** Renders fallback on the server. Post-mount, checks `img.complete` via a ref callback so browser-cached / SSR-prefetched images don't get stuck on the fallback.
