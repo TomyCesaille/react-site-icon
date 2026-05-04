@@ -1,6 +1,6 @@
 # react-site-icon
 
-A React component to display any website's favicon from its domain. Zero dependencies. < 1KB.
+Display any site's favicon effortlessly. One prop in, the right icon out. Zero dependencies. < 1KB.
 
 [![npm](https://img.shields.io/npm/v/react-site-icon)](https://www.npmjs.com/package/react-site-icon)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/react-site-icon)](https://bundlephobia.com/package/react-site-icon)
@@ -25,7 +25,19 @@ import { SiteIcon } from 'react-site-icon';
 
 ## Why
 
-Most favicon solutions have the same problem: **no reliable fallback detection.**
+Favicons sound easy. They aren't. Different CDNs, missing icons, blurry upscales, layout shift, SSR caching, default-globe placeholders that look like real favicons — most "just give me a favicon" libraries punt on these.
+
+**`react-site-icon` handles them for you:**
+
+- **Reliable fallback detection.** Distinguishes real favicons from Google's default globe via a `naturalWidth` check (see [How it works](#how-it-works) below) — no other React favicon library does this.
+- **Sharp at every size.** Only exposes sizes Google's CDN actually serves (`12 | 16 | 24 | 28 | 32 | 40 | 48 | 50 | 64 | 96 | 128`) — no blurry upscaling. At `size={16}` the lib transparently fetches `24px` so detection still works, then renders at the size you asked for.
+- **Forgiving domain input.** `"github.com"`, `"https://github.com"`, `"https://github.com/user/repo"` — all work. Internally normalized to hostname.
+- **Three render strategies.** Pick `lazy` (fallback during load), `eager` (fastest paint), or `hidden` (zero layout shift).
+- **SSR + hydration aware.** Renders fallback on the server. Post-mount, checks `img.complete` via a ref callback so browser-cached / SSR-prefetched images don't get stuck on the fallback.
+- **Stale-prop safe.** Change `domain` mid-load and you'll never see the previous domain's icon flash through.
+- **One CDN request.** No canvas pixel-comparison, no `crossOrigin` tainting, no second fetch to the target domain.
+
+### How it works
 
 Google's [faviconV2 CDN](https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://github.com&size=64) returns a favicon for any domain. When the domain has no favicon, it returns a **default globe icon that is always 16x16 pixels**, regardless of the size you requested. This size mismatch is the detection mechanism:
 
