@@ -116,7 +116,7 @@
 - Node 24 for release (`release.yml` -- needed for npm OIDC trusted publishing)
 
 **Production (consumers):**
-- Any React 17/18/19 project
+- Any React 18 or 19 project
 - No Node.js version restriction on consumers (`"engines"` not set in package.json)
 - ES2020 browser target
 

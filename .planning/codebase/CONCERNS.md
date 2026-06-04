@@ -130,11 +130,8 @@
 - Risk: The core detection heuristic could break without any test failing. A CDN behavior change would only be caught by manual testing or user reports.
 - Priority: Medium. An optional integration test (skipped in CI, run manually) would provide early warning.
 
-**No React 17 compatibility testing:**
-- What's not tested: `peerDependencies` declares React 17 support, but `@testing-library/react@16` only supports React 18+. Tests run exclusively against React 19. The `forwardRef` usage and `jsx-runtime` imports may behave differently in React 17.
-- Files: `package.json` (line 50), `src/SiteIcon.tsx`
-- Risk: React 17 users could encounter runtime errors that tests do not catch. The `"use client"` banner in the build output is a React 18+ concept.
-- Priority: High. Either drop React 17 from `peerDependencies` or add a CI matrix testing against React 17.
+**~~No React 17 compatibility testing~~ (RESOLVED 2026-06-04):**
+- Resolution: Dropped React 17 from `peerDependencies`. Range is now `^18.0.0 || ^19.0.0`. The "use client" banner is now consistent with the declared peer range. Existing React 17 users who pinned an earlier 0.x release are unaffected; v1.0+ consumers must be on React 18 or 19.
 
 **No coverage enforcement:**
 - What's not tested: Coverage thresholds are not configured. There is no way to detect coverage regressions.

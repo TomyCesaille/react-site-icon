@@ -56,7 +56,7 @@ Reliably display any website's favicon with correct fallback detection -- fast (
 
 - **Bundle size**: < 1KB minified+gzipped -- this is the library's competitive edge
 - **Dependencies**: Zero runtime dependencies -- only React as peer dependency
-- **React compatibility**: Must work with React 17, 18, and 19
+- **React compatibility**: Must work with React 18 and 19 (React 17 support dropped 2026-06-04 in v1.0)
 - **License**: MIT
 - **Build tooling**: tsup (ESM + CJS), vitest, TypeScript strict
 - **Hosting**: GitHub Pages for demo site, npm registry for package
@@ -72,7 +72,7 @@ Reliably display any website's favicon with correct fallback detection -- fast (
 | Astro + React for demo site | Static HTML for SEO + React islands for interactive playground | ✓ Good -- fast static site with interactive playground |
 | Changesets-driven publishing (not git tag) | Explicit version control, automated PRs, CHANGELOG generation | ✓ Good -- D-01 decision, clean workflow |
 | Strip protocols from domain input | Better DX -- accept `https://github.com/path` not just `github.com` | ✓ Good -- zero user complaints |
-| React 17+ support | Widest adoption -- no reason to exclude 17 for a simple component | ✓ Good -- @astrojs/react confirms compat |
+| React 17+ support | Widest adoption -- no reason to exclude 17 for a simple component | ⚠ Reversed 2026-06-04 (v1.0): dropped React 17 — never CI-tested and shipped `"use client"` banner is RSC-era (18+). Now React 18/19 only. |
 | esbuildOptions callback for "use client" | Avoids banner injection into .d.ts files | ✓ Good -- clean declarations |
 | prevDomain state pattern (not useRef) | eslint-plugin-react-hooks 7.x refs rule compliance | ✓ Good -- consistent with modern React patterns |
 | naturalWidth > 16 threshold | Google default globe is always 16x16; size=16 uses > 0 fallback | ✓ Good -- validated in testing + production |
