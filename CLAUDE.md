@@ -26,7 +26,7 @@ A zero-dependency React component that displays any website's favicon from its d
 | Technology | Version | Purpose | Why | Confidence |
 |------------|---------|---------|-----|------------|
 | React | 17.x / 18.x / 19.x (peer dep) | UI framework | The library's entire purpose. Support all three majors for maximum adoption. | HIGH |
-| TypeScript | ^5.7 (dev dep) | Type safety + shipped .d.ts | Strict mode catches bugs at compile time; consumers expect shipped declarations. Pin to TS 5.x -- TS 6.0 exists but is very new. | HIGH |
+| TypeScript | ^6.0 (dev dep) | Type safety + shipped .d.ts | Strict mode catches bugs at compile time; consumers expect shipped declarations. Now on TS 6. Note: tsconfig sets `ignoreDeprecations: "6.0"` until tsup updates its internal use of the deprecated `baseUrl` option. | HIGH |
 ### Build Tool
 | Technology | Version | Purpose | Why | Confidence |
 |------------|---------|---------|-----|------------|
