@@ -4,17 +4,11 @@
 
 ## Tech Debt
 
-**Empty-string `src` attribute on detection img for empty domain:**
-- Issue: When `domain=""` or `domain="   "`, the component's initial render enters the `'loading'` state and renders a hidden detection `<img src="" ...>`. The "adjust state during render" block at line 107 of `SiteIcon.tsx` does not fire because `prevDomain === normalizedDomain` (both empty on first render). This produces the browser warning: *"An empty string was passed to the src attribute. This may cause the browser to download the whole page again over the network."*
-- Files: `src/SiteIcon.tsx` (lines 73-76, 107-110, 150-158)
-- Impact: Cosmetic browser console warning. Minor: the empty-src img may trigger a redundant network request for the current page URL in some browsers before the next render cycle transitions to `'missing'`.
-- Fix approach: Initialize `status` based on `normalizedDomain` instead of always defaulting to `'loading'`:
-  ```ts
-  const [status, setStatus] = useState<'loading' | 'found' | 'missing'>(
-    normalizedDomain ? 'loading' : 'missing',
-  );
-  ```
-  Alternatively, guard the detection img render: do not emit the `<img>` when `src` is empty.
+**~~Empty-string `src` attribute on detection img for empty domain~~ (RESOLVED 2026-06-04, commit 8e618a2):**
+- ~~Issue: When `domain=""` or `domain="   "`, the component's initial render enters the `'loading'` state and renders a hidden detection `<img src="" ...>`. The "adjust state during render" block at line 107 of `SiteIcon.tsx` does not fire because `prevDomain === normalizedDomain` (both empty on first render). This produces the browser warning: *"An empty string was passed to the src attribute. This may cause the browser to download the whole page again over the network."*~~
+- ~~Files: `src/SiteIcon.tsx` (lines 73-76, 107-110, 150-158)~~
+- ~~Impact: Cosmetic browser console warning. Minor: the empty-src img may trigger a redundant network request for the current page URL in some browsers before the next render cycle transitions to `'missing'`.~~
+- Fix applied: Initialized `status` from `normalizedDomain` so empty-domain renders go straight to `'missing'`, mirroring the pattern already used in the domain-change branch. No more empty-src `<img>` mounted on first render.
 
 **Missing `concurrently` dependency (not installed):**
 - Issue: `concurrently@^9.2.1` is listed in `devDependencies` in `package.json` but is not present in `node_modules/`. Running `npm ls` reports `UNMET DEPENDENCY concurrently@^9.2.1`. The `docs:dev` script depends on it.
@@ -48,11 +42,8 @@
 
 ## Known Bugs
 
-**Empty domain renders hidden img with `src=""` for one render frame:**
-- Symptoms: Browser console warning about empty `src` attribute on `<img>` element. Visible in test output: `stderr | SiteIcon > default props > renders no visible content when empty domain and no fallback`.
-- Files: `src/SiteIcon.tsx` (line 73, line 150)
-- Trigger: Render `<SiteIcon domain="" />` or `<SiteIcon domain="   " />`.
-- Workaround: Not needed for end users -- the component transitions to fallback quickly. The warning is cosmetic.
+**~~Empty domain renders hidden img with `src=""` for one render frame~~ (RESOLVED 2026-06-04, commit 8e618a2):**
+- Status: Fixed by initializing `status` from `normalizedDomain` (see Tech Debt entry above). No empty-src `<img>` is ever mounted; empty-domain renders go straight to fallback.
 
 ## Security Considerations
 
