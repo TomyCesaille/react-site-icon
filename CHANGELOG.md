@@ -1,5 +1,11 @@
 # react-site-icon
 
+## 1.0.0
+
+### Major Changes
+
+- 1.0.0 release: refresh all dev/runtime dependencies to latest, regenerate lock files
+
 ## 0.1.3
 
 ### Patch Changes
