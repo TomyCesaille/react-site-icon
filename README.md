@@ -162,7 +162,7 @@ function FaviconWithStatus({ domain }: { domain: string }) {
 | Dependencies | 0 | 2 | 0 | 0 | 0 |
 | Fallback detection | Yes | No | No | No | No |
 | Network requests | 1 | 1-2 | 1 | 1+ (may fail) | 1 |
-| React versions | 17, 18, 19 | 19 only | Any | Any | Any |
+| React versions | 18, 19 | 19 only | Any | Any | Any |
 | SSR compatible | Yes | Unknown | Manual | Manual | Manual |
 | TypeScript | Full | Full | Manual | Manual | Manual |
 

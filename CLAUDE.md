@@ -11,7 +11,7 @@ A zero-dependency React component that displays any website's favicon from its d
 
 - **Bundle size**: < 1KB minified+gzipped — this is the library's competitive edge
 - **Dependencies**: Zero runtime dependencies — only React as peer dependency
-- **React compatibility**: Must work with React 17, 18, and 19
+- **React compatibility**: Must work with React 18 and 19 (React 17 support dropped in v1.0)
 - **License**: MIT
 - **Build tooling**: tsup (ESM + CJS), vitest, TypeScript strict
 - **Hosting**: GitHub Pages for demo site, npm registry for package
@@ -25,8 +25,8 @@ A zero-dependency React component that displays any website's favicon from its d
 ### Core Framework
 | Technology | Version | Purpose | Why | Confidence |
 |------------|---------|---------|-----|------------|
-| React | 17.x / 18.x / 19.x (peer dep) | UI framework | The library's entire purpose. Support all three majors for maximum adoption. | HIGH |
-| TypeScript | ^5.7 (dev dep) | Type safety + shipped .d.ts | Strict mode catches bugs at compile time; consumers expect shipped declarations. Pin to TS 5.x -- TS 6.0 exists but is very new. | HIGH |
+| React | 18.x / 19.x (peer dep) | UI framework | The library's entire purpose. React 17 dropped in v1.0 — untested in CI and the shipped `"use client"` banner is an RSC-era directive (18+). | HIGH |
+| TypeScript | ^6.0 (dev dep) | Type safety + shipped .d.ts | Strict mode catches bugs at compile time; consumers expect shipped declarations. Now on TS 6. Note: tsconfig sets `ignoreDeprecations: "6.0"` until tsup updates its internal use of the deprecated `baseUrl` option. | HIGH |
 ### Build Tool
 | Technology | Version | Purpose | Why | Confidence |
 |------------|---------|---------|-----|------------|
@@ -41,7 +41,7 @@ A zero-dependency React component that displays any website's favicon from its d
 | Technology | Version | Purpose | Why | Confidence |
 |------------|---------|---------|-----|------------|
 | Astro | ^6.1.5 | Demo site framework | Static HTML for SEO + React islands for interactive playground. Official `withastro/action@v6` for GitHub Pages deploys. | HIGH |
-| @astrojs/react | ^5.0.3 | React integration | Officially supports React 17/18/19 as peer deps (verified). | HIGH |
+| @astrojs/react | ^5.0.7 | React integration | Officially supports React 17/18/19 as peer deps (we only target 18/19). | HIGH |
 ### Testing
 | Technology | Version | Purpose | Why | Confidence |
 |------------|---------|---------|-----|------------|

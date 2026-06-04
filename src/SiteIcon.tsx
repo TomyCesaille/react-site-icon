@@ -73,7 +73,7 @@ const SiteIcon = forwardRef<HTMLImageElement, SiteIconProps>(function SiteIcon(
   const src = normalizedDomain ? buildUrl(normalizedDomain, fetchSize) : '';
 
   const [status, setStatus] = useState<'loading' | 'found' | 'missing'>(
-    'loading',
+    normalizedDomain ? 'loading' : 'missing',
   );
   // Track previous domain via state to detect changes during render (no ref access)
   const [prevDomain, setPrevDomain] = useState(normalizedDomain);
