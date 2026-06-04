@@ -1,5 +1,11 @@
 # react-site-icon
 
+## 0.1.3
+
+### Patch Changes
+
+- docs: demo-site polish and README pitch refresh; bump Astro dependency
+
 ## 0.1.2
 
 ### Patch Changes
