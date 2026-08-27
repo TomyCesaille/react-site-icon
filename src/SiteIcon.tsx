@@ -10,17 +10,7 @@ import {
 
 /** Supported favicon sizes from Google's faviconV2 CDN. */
 export type SiteIconSize =
-  | 12
-  | 16
-  | 24
-  | 28
-  | 32
-  | 40
-  | 48
-  | 50
-  | 64
-  | 96
-  | 128;
+  12 | 16 | 24 | 28 | 32 | 40 | 48 | 50 | 64 | 96 | 128;
 
 export interface SiteIconProps extends Omit<
   ComponentPropsWithoutRef<'img'>,
