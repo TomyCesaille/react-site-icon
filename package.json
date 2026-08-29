@@ -61,6 +61,7 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",
     "concurrently": "^10.0.5",
+    "esbuild": "0.28.2",
     "eslint": "^10.9.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
@@ -99,6 +100,7 @@
     "url": "https://github.com/TomyCesaille/react-site-icon/issues"
   },
   "overrides": {
+    "esbuild": "$esbuild",
     "eslint-plugin-react": {
       "eslint": "$eslint"
     },
