@@ -8,7 +8,7 @@ Display any site's favicon effortlessly. One prop in, the right icon out. Zero d
 [![license](https://img.shields.io/npm/l/react-site-icon)](https://github.com/TomyCesaille/react-site-icon/blob/main/LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/TomyCesaille/react-site-icon/ci.yml?branch=main)](https://github.com/TomyCesaille/react-site-icon/actions/workflows/ci.yml)
 
-> Bundle size badge is manually maintained because the Bundlephobia-backed badge is rate-limited for this package.
+> `903 B` is the manually checked minified+gzipped bundle size for v1.0.0. Update this badge when a release changes the published size, because the Bundlephobia-backed badge is rate-limited for this package.
 
 ```tsx
 import { SiteIcon } from 'react-site-icon';
