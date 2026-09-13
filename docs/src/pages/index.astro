@@ -44,6 +44,7 @@ import Playground from '../components/Playground';
       <img src="https://img.shields.io/npm/l/react-site-icon" height="20" alt="license" />
       <img src="https://img.shields.io/github/actions/workflow/status/TomyCesaille/react-site-icon/ci.yml?branch=main" height="20" alt="CI" />
     </div>
+    <p class="badge-note">The 903 B badge is manually maintained because Bundlephobia rate-limits this package badge.</p>
   </section>
 
   <section class="section">
@@ -112,6 +113,12 @@ import Playground from '../components/Playground';
     display: flex;
     gap: var(--space-sm);
     margin-top: var(--space-md);
+  }
+
+  .badge-note {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: var(--space-sm);
   }
 
   .why h2,
