@@ -3,7 +3,7 @@
 Display any site's favicon effortlessly. One prop in, the right icon out. Zero dependencies. < 1KB.
 
 [![npm](https://img.shields.io/npm/v/react-site-icon)](https://www.npmjs.com/package/react-site-icon)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/react-site-icon)](https://bundlephobia.com/package/react-site-icon)
+[![bundle size](https://img.shields.io/badge/bundlephobia-903%20B-blue)](https://bundlephobia.com/package/react-site-icon)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff)](#)
 [![license](https://img.shields.io/npm/l/react-site-icon)](https://github.com/TomyCesaille/react-site-icon/blob/main/LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/TomyCesaille/react-site-icon/ci.yml?branch=main)](https://github.com/TomyCesaille/react-site-icon/actions/workflows/ci.yml)
