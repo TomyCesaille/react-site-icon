@@ -31,14 +31,14 @@ jobs:
       - name: Unit tests
         run: npm run test
 
-      - name: Export validation
-        run: npm run test:exports
-
       - name: Format check
         run: npm run format:check
 
       - name: Build
         run: npm run build
+
+      - name: Export validation
+        run: npm run test:exports
 
       - name: Check bundle size
         run: |
