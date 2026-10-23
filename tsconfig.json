@@ -14,8 +14,7 @@
     "declarationMap": true,
     "outDir": "dist",
     "noEmit": true,
-    "types": ["vitest/globals"],
-    "ignoreDeprecations": "6.0"
+    "types": ["vitest/globals"]
   },
   "include": ["src", "vitest.setup.ts"],
   "exclude": ["node_modules", "dist"]

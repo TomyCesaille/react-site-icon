@@ -1,5 +1,11 @@
 # react-site-icon
 
+## 1.0.1
+
+### Patch Changes
+
+- Refresh all dev and demo-site dependencies to latest (tsup 9, Vitest 5, Astro 7.4, @astrojs/react 7) to resolve every open security advisory. No runtime changes: the published JS output is identical to 1.0.0.
+
 ## 1.0.0
 
 ### Major Changes
