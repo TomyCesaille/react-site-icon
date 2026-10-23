@@ -91,11 +91,11 @@ The bundle size badge is hardcoded, not dynamic: the shields.io Bundlephobia bad
 ### CI/CD (GitHub Actions)
 | Technology | Version | Purpose | Why | Confidence |
 |------------|---------|---------|-----|------------|
-| actions/checkout | v4 | Clone repo | Standard. | HIGH |
-| actions/setup-node | v4 | Node setup | With npm caching. Pin to Node 22.x LTS for OIDC support. | HIGH |
+| actions/checkout | v7 | Clone repo | Standard. | HIGH |
+| actions/setup-node | v7 | Node setup | npm caching in CI and deploy; no cache in the release workflow (cache-poisoning risk with OIDC). Release runs on Node 24 for npm >= 11.5.1 (OIDC Trusted Publishing). | HIGH |
 | changesets/action | v2 | Version PR + publish | Creates version bump PRs, publishes on merge. | HIGH |
 | withastro/action | v6 | Demo site build | Official Astro action for GitHub Pages. | HIGH |
-| actions/deploy-pages | v4 | Deploy to GH Pages | Standard GitHub Pages deployment action. | HIGH |
+| actions/deploy-pages | v5 | Deploy to GH Pages | Standard GitHub Pages deployment action. | HIGH |
 ### Supporting Packages
 | Package | Version | Purpose | When to Use | Confidence |
 |---------|---------|---------|-------------|------------|
@@ -126,7 +126,7 @@ The bundle size badge is hardcoded, not dynamic: the shields.io Bundlephobia bad
 | Context | Node Version | Rationale |
 |---------|-------------|-----------|
 | CI (lint/test/build) | 22.x LTS | Required for npm OIDC Trusted Publishing (>= 22.14.0). Also satisfies Vitest 5 (^22.12), tsup 9 (^22.18) and ESLint 10 (^22.13). |
-| CI (demo deploy) | 22.x LTS | Consistency with main CI. Astro 7.4 requires >= 22.23.4 (`node-version: 22` resolves to the latest 22.x). |
+| CI (demo deploy) | `.nvmrc` (22.23.4) | Astro 7.4 requires >= 22.23.4. The Astro build reads `.nvmrc` for an exact version: a bare `node-version: 22` resolves to the runner's preinstalled 22.x, which can lag (it gave 22.23.3 and broke the v1.0.1 deploy). |
 | `engines` in package.json | `>=18` | Don't restrict consumers. The library output is plain JS; any Node version works. |
 | Local development | 22.23.4+ | Pinned in `.nvmrc`. |
 ## Sources
