@@ -1,3 +1,5 @@
+@AGENTS.md
+
 ## Project
 
 **react-site-icon**
