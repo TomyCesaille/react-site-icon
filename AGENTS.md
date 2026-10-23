@@ -126,7 +126,7 @@ The bundle size badge is hardcoded, not dynamic: the shields.io Bundlephobia bad
 | Context | Node Version | Rationale |
 |---------|-------------|-----------|
 | CI (lint/test/build) | 22.x LTS | Required for npm OIDC Trusted Publishing (>= 22.14.0). Also satisfies Vitest 5 (^22.12), tsup 9 (^22.18) and ESLint 10 (^22.13). |
-| CI (demo deploy) | 22.x LTS | Consistency with main CI. Astro 7.4 requires >= 22.23.4 (`node-version: 22` resolves to the latest 22.x). |
+| CI (demo deploy) | `.nvmrc` (22.23.4) | Astro 7.4 requires >= 22.23.4. The Astro build reads `.nvmrc` for an exact version: a bare `node-version: 22` resolves to the runner's preinstalled 22.x, which can lag (it gave 22.23.3 and broke the v1.0.1 deploy). |
 | `engines` in package.json | `>=18` | Don't restrict consumers. The library output is plain JS; any Node version works. |
 | Local development | 22.23.4+ | Pinned in `.nvmrc`. |
 ## Sources
